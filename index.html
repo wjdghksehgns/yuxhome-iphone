@@ -6,7 +6,6 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#000000">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="b/lock.jpg"><link rel="preload" as="image" href="b/home.jpg">
 <title>정환이의 폰</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
@@ -303,7 +302,7 @@ img{-webkit-user-drag:none;user-drag:none}
 .mo-note{position:absolute;inset:0;z-index:8;background:#fff;transform:translateX(100%);visibility:hidden;transition:transform .38s cubic-bezier(.25,.8,.25,1),visibility 0s linear .38s;box-shadow:-8px 0 24px rgba(0,0,0,.08)}
 .mo-note.open{transform:none;visibility:visible;transition:transform .38s cubic-bezier(.25,.8,.25,1),visibility 0s}
 .mo-note .date{margin-top:104px;text-align:center;font-size:14.6px;color:#8A8A8E;letter-spacing:-.15px}
-.mo-note .body{margin:34px 24.3px 0;font-size:17.2px;line-height:26px;letter-spacing:-.3px;color:#1c1c1e;white-space:pre-wrap;word-break:keep-all}
+.mo-note .body{margin:34px 20px 0 24.3px;font-size:16.5px;line-height:26px;letter-spacing:-.45px;color:#1c1c1e;white-space:pre-wrap;word-break:keep-all}
 .mo-note .nbot{position:absolute;left:0;right:0;bottom:0;height:110px;pointer-events:none;background:linear-gradient(rgba(255,255,255,0),#fff 55%);z-index:2}
 #memo .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:9;pointer-events:none}
 .bub a.tl2{color:#2E6BD6;text-decoration:underline;text-underline-offset:2px}
@@ -347,16 +346,16 @@ img{-webkit-user-drag:none;user-drag:none}
 .ig-set.open{transform:none;visibility:visible;transition:transform .38s cubic-bezier(.25,.8,.25,1),visibility 0s}
 .ig-set>img{position:absolute;left:0;top:0;width:375px;height:812px}
 #insta .sb{z-index:6}
-.ig-story .st-head{position:absolute;left:0;top:0;width:375px;height:121.7px;z-index:3}
-.ig-story .st-body{position:absolute;left:0;right:0;top:121.7px;bottom:0;overflow:hidden;background:#fff}
-.ig-story .st-start{position:absolute;left:0;top:0;width:375px;height:690.3px}
+.ig-story .st-head{position:absolute;left:0;top:0;width:375px;height:140px;z-index:3}
+.ig-story .st-body{position:absolute;left:0;right:0;top:140px;bottom:0;overflow:hidden;background:#fff}
+.ig-story .st-start{position:absolute;left:0;top:0;width:375px;height:672px}
 .ig-story .st-fb{position:absolute;inset:0;visibility:hidden}
-.ig-story .st-fb img{position:absolute;left:0;top:0;width:375px;height:690.3px;opacity:0}
+.ig-story .st-fb img{position:absolute;left:0;top:0;width:375px;height:672px;opacity:0}
 .ig-story .st-fb img.on{opacity:1}
 .ig-story.fb .st-fb{visibility:visible}
 .ig-story .st-scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none;visibility:hidden;background:#fff}
 .ig-story .st-scroll::-webkit-scrollbar{display:none}
-.ig-story .st-scroll img{display:block;width:375px;height:2704.5px}
+.ig-story .st-scroll img{display:block;width:375px;height:2684px}
 .ig-story.done .st-scroll{visibility:visible}
 .ig-banner.b2{height:67.3px;top:-80px}
 .ktyping{position:relative;padding:18.3px 10px 0 52px;margin-top:11.5px}
@@ -422,6 +421,102 @@ img{-webkit-user-drag:none;user-drag:none}
 .dm-b img{width:100%;height:100%;display:block;pointer-events:none}
 .dm-block{position:absolute;inset:0;z-index:94;display:none}
 .dm-block.on{display:block}
+
+/* ===== 캘린더 ===== */
+#calendar{background:#fff;color:#000;font-family:-apple-system,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.cal-top{position:absolute;left:15.3px;top:56px;height:42.3px;padding:0 15px 0 11px;border-radius:21.2px;background:rgba(246,246,248,.92);box-shadow:0 2px 10px rgba(0,0,0,.06);display:flex;align-items:center;gap:7px;font-size:16.6px;font-weight:500;letter-spacing:-.3px;z-index:3}
+.cal-icons{position:absolute;left:209.8px;top:56px;width:149.4px;height:42.3px;border-radius:21.2px;background:rgba(246,246,248,.92);box-shadow:0 2px 10px rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-around;padding:0 6px;z-index:3}
+.cal-month{position:absolute;left:19.5px;top:113px;font-size:34px;font-weight:800;letter-spacing:-1px;line-height:40px}
+.cal-wk{position:absolute;left:0;right:0;top:157px;display:grid;grid-template-columns:repeat(7,1fr);font-size:9.5px;color:#222;text-align:center}
+.cal-wk span:first-child,.cal-wk span:last-child{color:#888}
+.cal-gridwrap{position:absolute;left:0;right:0;top:173.5px;height:244px;overflow:hidden;touch-action:none}
+.cal-grid{position:absolute;left:0;right:0;top:0;display:grid;grid-template-columns:repeat(7,1fr);grid-auto-rows:48.7px;will-change:transform,opacity}
+.cal-d{position:relative;display:flex;justify-content:center;cursor:pointer}
+.cal-d.has{border-top:.8px solid #e3e3e6}
+.cal-d .n{margin-top:9px;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16.6px;font-weight:600;letter-spacing:-.4px}
+.cal-d.we .n{color:#8e8e93}
+.cal-d.today .n{color:#e9443a}
+.cal-d.sel .n{background:#000;color:#fff}
+.cal-d.sel.today .n{background:#e9443a;color:#fff}
+.cal-d .dots{position:absolute;top:40.5px;left:50%;transform:translateX(-50%);display:flex}
+.cal-d .dots i{display:block;height:4.6px;width:5.6px}
+.cal-d .dots i:first-child{border-radius:3px 0 0 3px}.cal-d .dots i:last-child{border-radius:0 3px 3px 0}
+.cal-d .dots i:only-child{width:4.6px;border-radius:50%}
+.cal-sep{position:absolute;left:0;right:0;top:417px;height:.8px;background:#e3e3e6}
+.cal-ev{position:absolute;left:0;right:0;top:425px}
+.cal-row{position:relative;display:flex;align-items:flex-start;min-height:46px;padding:5px 19px 0 19.2px}
+.cal-row+.cal-row:before{content:"";position:absolute;left:12px;right:12px;top:0;height:.8px;background:#e3e3e6}
+.cal-row .bar{width:3px;height:37px;border-radius:2px;background:#3478f6;margin:0 7px 0 0;flex:none}
+.cal-row .tt{flex:1;font-size:15.4px;font-weight:600;letter-spacing:-.4px;line-height:21px;padding-top:2px}
+.cal-row .tm{font-size:13.8px;text-align:right;line-height:18.5px;padding-top:2px}
+.cal-row .tm b{font-weight:400;display:block}.cal-row .tm span{color:#8e8e93}
+.cal-row.all{align-items:center;min-height:42px;padding-top:0}
+.cal-row.all .ic{width:19.5px;height:19.5px;border-radius:50%;margin:0 6px 0 0;display:flex;align-items:center;justify-content:center;flex:none}
+.cal-row.all .tt{font-weight:600;padding:0}
+.cal-row.all .tm{font-size:13.8px;padding:0}
+.cal-none{text-align:center;color:#8e8e93;font-size:15px;padding-top:26px}
+.cal-today{position:absolute;left:26.7px;top:740px;width:59.3px;height:45px;border-radius:22.5px;background:rgba(246,246,248,.95);box-shadow:0 2px 10px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:center;font-size:15.4px;font-weight:500;z-index:3}
+.cal-br{position:absolute;left:226.6px;top:740px;width:121.4px;height:45px;border-radius:22.5px;background:rgba(246,246,248,.95);box-shadow:0 2px 10px rgba(0,0,0,.07);display:flex;align-items:center;justify-content:space-around;padding:0 10px;z-index:3}
+#calendar .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:5;pointer-events:none}
+.cal-homehot{position:absolute;left:0;right:0;top:792px;bottom:0;z-index:6}
+.cal-row.allme{align-items:center;min-height:46px;padding-top:0}
+.cal-row.allme .tt{padding-top:0}
+.cal-row.allme .tm{padding-top:0;font-size:13.8px}
+#camera{background:#000}
+#camera .cam-v{position:absolute;left:0;top:0;width:375px;height:812px;object-fit:cover;display:block}
+#camera .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:3;pointer-events:none}
+#camera .sbmask{position:absolute;left:0;top:0;width:375px;height:47px;background:#000;z-index:2}
+.cam-homehot{position:absolute;left:0;right:0;top:790px;bottom:0;z-index:4}
+.mo-note .mtitle{margin:30px 24.3px 0;font-size:27px;font-weight:700;letter-spacing:-.5px;color:#1c1c1e;line-height:32px}
+.mo-note .mtitle+.body{margin-top:26px !important}
+.mo-note .body{overflow-wrap:anywhere}
+.call-in{position:absolute;inset:0;z-index:92;background:#242424;opacity:0;visibility:hidden;transform:scale(1.04)}
+.call-in.on{visibility:visible}
+.call-in>img{position:absolute;left:0;top:0;width:375px;height:812px}
+.call-in .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;pointer-events:none}
+.call-in .decline{position:absolute;left:38px;top:672px;width:76px;height:76px;border-radius:50%;cursor:pointer}
+.call-in .decline:active{filter:brightness(.8)}
+
+/* ===== 배너 전화 / 통화 화면 ===== */
+.cb{position:absolute;left:8px;top:40px;width:359px;height:104px;z-index:97;visibility:hidden;filter:drop-shadow(0 8px 20px rgba(0,0,0,.35));will-change:transform,opacity;touch-action:none}
+.cb.on{visibility:visible}
+.cb>img{width:100%;height:100%;display:block;pointer-events:none}
+.cb .bt{position:absolute;top:27.7px;width:48px;height:48px;border-radius:50%;cursor:pointer}
+.cb .bt.no{left:242.7px}.cb .bt.ok{left:298.7px}
+.cb .bt.dn{background:rgba(0,0,0,.25)}
+.oncall{position:absolute;inset:0;z-index:98;background:linear-gradient(#252525,#262626 60%,#272727);visibility:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.oncall.on{visibility:visible}
+.oncall .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;pointer-events:none}
+.oncall .odot{position:absolute;left:281.7px;top:7.3px;width:4.8px;height:4.8px;border-radius:50%;background:#DA8A3A}
+.oncall .st{position:absolute;left:0;right:0;top:97px;height:28px;line-height:28px;text-align:center;font-size:21.5px;font-weight:600;color:#9C9CA1;letter-spacing:-.2px;font-variant-numeric:tabular-nums}
+.oncall .em{position:absolute;left:149.3px;top:128.7px;width:75px;height:37px}
+.oncall .btns{position:absolute;left:20px;top:540px;width:335px;height:226.7px;transition:opacity .5s}
+.oncall.ended .btns{opacity:.4}
+.phone-off{position:absolute;inset:0;z-index:999;background:#000;opacity:0;touch-action:none}
+
+/* ===== 전화 ===== */
+#dial{background:#fff}
+#dial .dl-list{position:absolute;left:0;top:0;width:375px;height:812px;touch-action:none}
+#dial .dl-list img{position:absolute;left:0;top:107.3px;width:375px;height:621.3px;pointer-events:none}
+#dial .dl-top{position:absolute;left:0;top:0;width:375px;height:107.3px;z-index:2;pointer-events:none}
+#dial .dl-bot{position:absolute;left:0;top:700px;width:375px;height:112px;z-index:2;pointer-events:none}
+#dial .dl-tab{position:absolute;left:21px;top:728px;width:333px;height:64px;border-radius:32px;z-index:3}
+#dial .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:4;pointer-events:none}
+#dial .dl-homehot{position:absolute;left:0;right:0;top:795px;bottom:0;z-index:4}
+
+/* ===== ChatGPT ===== */
+#chatgpt{background:#fff}
+.gp-scroll{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none;padding:99.2px 0 137.7px}
+.gp-scroll::-webkit-scrollbar{display:none}
+.gp-date{height:58px;padding-top:22px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif;font-size:13.6px;font-weight:500;color:#8F8F8F;letter-spacing:-.1px}
+.gp-scroll img{display:block;width:375px;height:2387.4px;pointer-events:none}
+.gp-head{position:absolute;left:0;top:0;width:375px;height:99.2px;z-index:3;pointer-events:none}
+.gp-fade{position:absolute;left:0;right:0;top:664px;height:22px;z-index:2;pointer-events:none;background:linear-gradient(rgba(255,255,255,0),#fff)}
+.gp-bot{position:absolute;left:0;top:683.9px;width:375px;height:129.1px;z-index:3;pointer-events:none}
+.gp-down{position:absolute;left:170.5px;top:678px;width:34px;height:34px;border-radius:50%;background:#fff;border:.6px solid #e3e3e3;box-shadow:0 2px 8px rgba(0,0,0,.08);z-index:4;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(.85);pointer-events:none;transition:opacity .2s,transform .2s;cursor:pointer}
+.gp-down.show{opacity:1;transform:none;pointer-events:auto}
+#chatgpt .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:5;pointer-events:none}
+.gp-homehot{position:absolute;left:0;right:0;top:790px;bottom:0;z-index:6}
 </style>
 </head>
 <body>
@@ -560,9 +655,9 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="km-touch" id="kmTouch"><div class="km-heart" id="kmHeart"></div></div>
     <img class="km-ui" src="b/km_top.png" style="left:0;top:50px;width:375px;height:100px" alt="">
     <img class="km-ui km-q" src="a/km_q1.png" style="left:58.33px;top:65px;width:155px;height:26.67px" alt="">
-    <img class="km-ui km-q" src="a/km_q2.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
-    <img class="km-ui km-q" src="a/km_q3.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
-    <img class="km-ui" src="a/km_rbtn.png" style="left:315px;top:156.67px;width:48.33px;height:96.67px" alt="">
+    <img class="km-ui km-q" src="b/km_q2.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
+    <img class="km-ui km-q" src="b/km_q3.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
+    <img class="km-ui" src="b/km_rbtn.png" style="left:315px;top:156.67px;width:48.33px;height:96.67px" alt="">
     <img class="km-ui km-move" src="b/km_weather.png" style="left:10px;top:625px;width:53.33px;height:79px" alt="">
     <img class="km-ui km-move" src="a/km_locate.png" style="left:315px;top:657.33px;width:48.33px;height:46.67px" alt="">
     <img class="km-ui" src="b/km_tab.png" style="left:0;top:716.33px;width:375px;height:95.67px" alt="">
@@ -649,13 +744,13 @@ img{-webkit-user-drag:none;user-drag:none}
       <div class="mo-top"></div>
       <div class="mo-small"><div class="a">모든 iCloud</div><div class="b"><img src="b/mo_cloud.png" alt="">저장 공간이 가득 참</div></div>
       <div class="mo-bot"></div>
-      <img class="mo-btn" src="b/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px" alt="">
+      <img class="mo-btn" src="b/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px" alt=""><div data-close style="position:absolute;left:14px;top:48px;width:48px;height:48px;border-radius:50%;z-index:6;cursor:pointer"></div>
       <img class="mo-btn" src="b/mo_more.png" style="left:315px;top:50.3px;width:43.7px;height:43.7px" alt="">
       <img class="mo-btn" src="b/mo_search.png" style="left:28.3px;top:736.3px;width:258.3px;height:47px" alt="">
       <img class="mo-btn" src="b/mo_compose.png" style="left:299px;top:735.7px;width:48px;height:48px" alt="">
     </div>
     <div class="mo-note" id="moNote">
-      <div class="mo-scroll"><div class="date" id="moDate"></div><div class="body" id="moBody"></div><div class="mo-pad"></div></div>
+      <div class="mo-scroll"><div class="date" id="moDate"></div><div class="mtitle" id="moTitle"></div><div class="body" id="moBody"></div><div class="mo-pad"></div></div>
       <div class="nbot"></div>
       <img class="mo-btn" id="moBack" src="b/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px;cursor:pointer" alt="">
       <img class="mo-btn" src="b/mo_share.png" style="left:258.7px;top:50.3px;width:100px;height:43.7px" alt="">
@@ -740,6 +835,60 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="yt-homehot" data-close></div>
   </div>
 
+
+  <!-- ===== 캘린더 ===== -->
+  <div class="screen appscr" id="calendar">
+    <div class="cal-top"><svg width="11" height="18" viewBox="0 0 11 18"><path d="M9 1.5 1.8 9 9 16.5" fill="none" stroke="#111" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="calYear">2026년</span></div>
+    <div class="cal-icons">
+      <svg width="20" height="19" viewBox="0 0 20 19"><rect x="1" y="1" width="18" height="9" rx="2.6" fill="none" stroke="#111" stroke-width="1.7"/><path d="M1 13.5h18M4.5 17h14.5" stroke="#111" stroke-width="1.7" stroke-linecap="round"/><circle cx="1.6" cy="17" r="1" fill="#111"/></svg>
+      <svg width="20" height="20" viewBox="0 0 20 20"><circle cx="8.4" cy="8.4" r="6.6" fill="none" stroke="#111" stroke-width="1.9"/><path d="m13.3 13.3 5 5" stroke="#111" stroke-width="2" stroke-linecap="round"/></svg>
+      <svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 1.5v15M1.5 9h15" stroke="#111" stroke-width="1.9" stroke-linecap="round"/></svg>
+    </div>
+    <div class="cal-month" id="calMonth">10월</div>
+    <div class="cal-wk"><span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span></div>
+    <div class="cal-gridwrap" id="calWrap"><div class="cal-grid" id="calGrid"></div></div>
+    <div class="cal-sep"></div>
+    <div class="cal-ev" id="calEv"></div>
+    <div class="cal-today" id="calToday">오늘</div>
+    <div class="cal-br">
+      <svg width="22" height="20" viewBox="0 0 22 20"><rect x="1" y="1.5" width="20" height="17.5" rx="3" fill="none" stroke="#111" stroke-width="1.6"/><path d="M1 6h20" stroke="#111" stroke-width="1.6"/><path d="M1 1.5h20v4.5H1z" fill="#111"/><g fill="#111"><circle cx="5" cy="9.5" r=".9"/><circle cx="8.7" cy="9.5" r=".9"/><circle cx="12.4" cy="9.5" r=".9"/><circle cx="16.1" cy="9.5" r=".9"/><circle cx="5" cy="13" r=".9"/><circle cx="8.7" cy="13" r=".9"/><circle cx="12.4" cy="13" r=".9"/><circle cx="16.1" cy="13" r=".9"/><circle cx="5" cy="16.2" r=".9"/><circle cx="8.7" cy="16.2" r=".9"/><circle cx="12.4" cy="16.2" r=".9"/></g></svg>
+      <svg width="23" height="18" viewBox="0 0 23 18"><path d="M1 10h6l1.6 3h5.8L16 10h6M1 10l3.4-8.2C4.7 1.3 5.2 1 5.8 1h11.4c.6 0 1.1.3 1.4.8L22 10v5.5c0 .8-.7 1.5-1.5 1.5h-18C1.7 17 1 16.3 1 15.5Z" fill="none" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    </div>
+    <img class="sb" src="b/sbar_clear.png" alt="">
+    <div class="cal-homehot" data-close></div>
+  </div>
+
+
+  <!-- ===== 카메라 ===== -->
+  <div class="screen appscr" id="camera">
+    <img class="cam-v" src="a/cam_poster.jpg" alt="">
+    <video class="cam-v" id="camVid" muted loop playsinline preload="auto" poster="a/cam_poster.jpg"></video>
+    <div class="sbmask"></div>
+    <img class="sb" src="b/sbar_white.png" alt="">
+    <div class="cam-homehot" data-close></div>
+  </div>
+
+  <!-- ===== 전화 (최근 통화) ===== -->
+  <div class="screen appscr" id="dial">
+    <div class="dl-list" id="dlList"><img src="b/ph_list.png" alt=""></div>
+    <img class="dl-top" src="b/ph_top.png" alt="">
+    <img class="dl-bot" src="b/ph_bot.png" alt="">
+    <div class="dl-tab" data-close></div>
+    <img class="sb" src="b/sbar_clear.png" alt="">
+    <div class="dl-homehot" data-close></div>
+  </div>
+
+  <!-- ===== ChatGPT ===== -->
+  <div class="screen appscr" id="chatgpt">
+    <div class="gp-scroll" id="gpScroll"><div class="gp-date">2025년 5월 29일 오후 7:26</div><img src="a/gpt_body.png" alt=""></div>
+    <div class="gp-fade"></div>
+    <img class="gp-bot" src="a/gpt_bot.png" alt="">
+    <img class="gp-head" src="a/gpt_head.png" alt="">
+    <div class="gp-down" id="gpDown"><svg width="15" height="17" viewBox="0 0 15 17"><path d="M7.5 1.5v13.2M1.8 9l5.7 5.8L13.2 9" fill="none" stroke="#0d0d0d" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <img class="sb" src="b/sbar_clear.png" alt="">
+    <div class="gp-homehot" data-close></div>
+  </div>
+
   <!-- 앱 화면 (아직 임시) -->
   <div class="screen appscr" id="appwin">
     <img class="sb" src="b/sbar_dark.png" alt="">
@@ -751,6 +900,19 @@ img{-webkit-user-drag:none;user-drag:none}
 </div></div></div>
 
 <script>
+/* ---------- 진동: 안드로이드는 진짜 진동, 아이폰·PC는 진동 소리 ---------- */
+const USE_SND=!(/Android/i.test(navigator.userAgent)&&navigator.vibrate);
+function blobURL(u){ if(!u.startsWith('data:')) return u; const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return URL.createObjectURL(new Blob([arr],{type:h.slice(5).split(';')[0]})); }
+const sDm=new Audio(), sCall=new Audio(); sDm.preload=sCall.preload='auto'; sCall.loop=true;
+sDm.src=blobURL("b/vib_dm.mp3"); sCall.src=blobURL("b/vib_call.mp3");
+let sndOK=false, ringing=false;
+function sndUnlock(){ if(sndOK||!USE_SND) return; sndOK=true;
+  [sDm,sCall].forEach(a=>{ if(a===sCall&&ringing) return; try{ a.muted=true; const p=a.play(); const done=()=>{ if(!(a===sCall&&ringing)){ a.pause(); a.currentTime=0; } a.muted=false; }; if(p&&p.then) p.then(done).catch(()=>{ a.muted=false; sndOK=false; }); else done(); }catch(e){ sndOK=false; } }); }
+['pointerdown','touchend','keydown'].forEach(ev=>document.addEventListener(ev,sndUnlock,true));
+function buzzDm(){ if(USE_SND){ try{ sDm.currentTime=0; const p=sDm.play(); p&&p.catch(()=>{}); }catch(e){} } else navigator.vibrate([12,40,12]); }
+let ringVib=null;
+function ringStart(){ ringing=true; if(USE_SND){ try{ sCall.muted=false; sCall.currentTime=0; const p=sCall.play(); p&&p.catch(()=>{}); }catch(e){} } else { clearInterval(ringVib); navigator.vibrate([400,600]); ringVib=setInterval(()=>navigator.vibrate([400,600]),1000); } }
+function ringStop(){ ringing=false; if(USE_SND){ try{ sCall.pause(); sCall.currentTime=0; }catch(e){} } else { clearInterval(ringVib); navigator.vibrate(0); } }
 /* ---------- 화면 크기 맞추기 ---------- */
 const fit=document.getElementById('fit');
 function resize(){
@@ -806,7 +968,7 @@ const APPS=[
  ['kakao','카카오톡',C[0],R[0]],['kmap','카카오맵',C[1],R[0]],['camera','카메라',C[2],R[0]],['photos','사진',C[3],R[0]],
  ['safari','Safari',C[2],R[1]],['youtube','YouTube',C[3],R[1]],
  ['mybox','MYBOX',C[0],R[2]],['chatgpt','ChatGPT',C[1],R[2]],['memo','메모',C[3],R[2]],
- ['phone','전화',C[0],D],['messages','메시지',C[1],D],['calendar','캘린더',C[2],D],['music','음악',C[3],D]
+ ['dial','전화',C[0],D],['messages','메시지',C[1],D],['calendar','캘린더',C[2],D],['music','음악',C[3],D]
 ];
 APPS.forEach(([id,name,x,y])=>{
   const a=document.createElement('div'); a.className='app'; a.style.left=x+'px'; a.style.top=y+'px';
@@ -825,9 +987,11 @@ function openApp(id,name,x,y){
   if(!el||!el.classList.contains('appscr')){ el=win; document.getElementById('apname').textContent=name; }
   el.style.transformOrigin=x+'px '+y+'px';
   if(id==='photos'){ const sc=document.getElementById('phScroll'); sc.scrollTop=sc.scrollHeight; requestAnimationFrame(()=>sc.scrollTop=sc.scrollHeight); }
+  if(id==='camera'&&window.camOpen) camOpen();
+  if(id==='chatgpt'){ const g=document.getElementById('gpScroll'); g.scrollTop=g.scrollHeight; requestAnimationFrame(()=>{ g.scrollTop=g.scrollHeight; }); }
   el.classList.add('open'); cur=el;
 }
-function closeApp(){ if(cur){ const c=cur; cur.classList.remove('open'); cur=null; if(c.id==='insta'&&c._prev){ const pv=c._prev; c._prev=null; setTimeout(()=>{ pv.style.transition='none'; pv.classList.remove('open'); requestAnimationFrame(()=>pv.style.transition=''); if(pv.id==='safari'){ pv.classList.remove('exp'); const n=document.getElementById('namu'); n&&n.classList.remove('open'); } },380); } setTimeout(()=>{ if(c.id==='kmap'&&window.kmapReset) kmapReset(); if(c.id==='insta'){ setTimeout(()=>window.igResetViews&&igResetViews(),400); const st=document.getElementById('igSet'); st&&st.classList.remove('open'); const sy=document.getElementById('igStory'); if(sy){ setTimeout(()=>{ sy.classList.remove('open'); stReset(); dm2Done=false; },400); } } if(c.id==='music'&&window.musicReset) musicReset(); if(c.id==='memo'&&window.memoReset) memoReset(); if(c.id==='youtube'&&window.ytReset) ytReset(); if(c.id==='safari'){ c.classList.remove('exp'); const n=document.getElementById('namu'); n&&n.classList.remove('open'); c.querySelector('.sf-scroll').scrollTop=0; } },420);} }
+function closeApp(){ if(cur){ const c=cur; cur.classList.remove('open'); cur=null; if(c.id==='insta'&&c._prev){ const pv=c._prev; c._prev=null; setTimeout(()=>{ pv.style.transition='none'; pv.classList.remove('open'); requestAnimationFrame(()=>pv.style.transition=''); if(pv.id==='safari'){ pv.classList.remove('exp'); const n=document.getElementById('namu'); n&&n.classList.remove('open'); } },380); } setTimeout(()=>{ if(c.id==='kmap'&&window.kmapReset) kmapReset(); if(c.id==='insta'){ setTimeout(()=>window.igResetViews&&igResetViews(),400); const st=document.getElementById('igSet'); st&&st.classList.remove('open'); const sy=document.getElementById('igStory'); if(sy){ setTimeout(()=>{ sy.classList.remove('open'); stReset(); dm2Done=false; },400); } } if(c.id==='music'&&window.musicReset) musicReset(); if(c.id==='memo'&&window.memoReset) memoReset(); if(c.id==='youtube'&&window.ytReset) ytReset(); if(c.id==='calendar'&&window.calReset) calReset(); if(c.id==='camera'&&window.camClose) camClose(); if(c.id==='safari'){ c.classList.remove('exp'); const n=document.getElementById('namu'); n&&n.classList.remove('open'); c.querySelector('.sf-scroll').scrollTop=0; } },420);} }
 document.querySelectorAll('[data-close]').forEach(h=>h.addEventListener('click',closeApp));
 let gy=null;
 const grab=document.getElementById('grab');
@@ -886,7 +1050,7 @@ const CHAT=[
  ['d','형 어제 술 많이 먹었어?','3:54'],
  ['me','아니','3:55'],
  ['me','어제 술 안 마셨어','3:56'],
- ['d','어제 형 말 듣고 생각많이 해봤는데..\n형이 시간 갖자는 말이 나한테는 끝내자는\n말처럼 들렸어\n순간 많은 생각이 들면서 내 멋대로 생각한\n거 같아\n형은 진짜 말 그대로 혼자 삭힐 시간이 필요\n했던 건데 나는 형이 안 돌아올까봐.. 우리\n관계를 쉽게 생각한다는 생각에 막 배신감\n에 휩싸여서 그렇게 행동했어 미안해\n중간에 형한테 연락하고싶었는데.. 타이밍\n도 안 맞고.. 쉽지 않더라 먼저 말 해줘서 고\n마워 보고싶었어 형','4:02'],
+ ['d','어제 형이 말 듣고 생각 많이 해봤는데..\n형이 시간 갖자는 말이 나한테는 끝내자는\n말처럼 들렸어\n순간 많은 생각이 들면서 내 멋대로 생각한\n거 같아\n형은 진짜 말 그대로 혼자 삭일 시간이 필요\n했던 건데 나는 형이 안 돌아올까봐.. 우리\n관계를 쉽게 생각한다는 생각에 막 배신감\n에 휩싸여서 그렇게 행동했어 미안해\n중간에 형한테 연락하고싶었는데.. 타이밍\n도 안 맞고.. 쉽지 않더라 먼저 말 해줘서 고\n마워 보고싶었어 형','4:02'],
  ['me','도훈아','4:04'],
  ['me','너 지금 어디야?','4:05'],
 
@@ -919,7 +1083,7 @@ const DATEHTML=`<div class="kc-date"><span>
           __DATE__
           <svg width="7" height="11" viewBox="0 0 7 11"><path d="M1.2 1l4.5 4.5L1.2 10" fill="none" stroke="#fff" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span></div>`;
-const TAIL='<svg class="tl" viewBox="0 0 8 10"><path d="M8 0H1.3C.3 0-.2 1 .5 1.8 2.4 3.9 3.2 6.6 3.2 10H8Z" fill="currentColor"/></svg>';
+const TAIL='<svg class="tl" viewBox="0 0 8 10"><path d="M5.35 0H1.3C.3 0-.2 1 .5 1.8 2.4 3.9 3.2 6.6 3.2 10H6.5V3Z" fill="currentColor"/></svg>';
 const AV="a/av_dohoon.png", NM="a/emoji_dohoon.png";
 function renderChat(){ renderInto(document.getElementById('kcIn'),CHAT,AV,'<img class="who" src="'+NM+'" style="width:31px;height:16.6px;top:-1.5px" alt="">'); }
 function renderInto(box,CHAT,AV,WHO){
@@ -990,9 +1154,7 @@ function hideTyping(){ const t=document.getElementById('kTyping'); t&&t.remove()
 function dPush(t){ hideTyping(); CHAT.push(['d',t,NOW]); renderChat(); updateListPreview(); toBottom(true); }
 function readAll(){ CHAT.forEach(m=>{ if(m[0]==='me') m[3]=false; }); renderChat(); toBottom(true); }
 function lockInput(on){ kcText.readOnly=on; if(on){ kcText.value=''; kcInput.classList.remove('typing'); kcText.blur(); } }
-function kakaoGoHome(){ kStage='done'; lockInput(true); kcText.blur();
-  closeApp(); setTimeout(()=>kchat.classList.remove('open'),420);
-  if(window.onReturnHome) window.onReturnHome('kakao'); }
+function kakaoGoHome(){ kStage='done'; lockInput(true); kcText.blur(); setTimeout(()=>showCall('kakao'),700); }
 function sendMsg(){
   if(kStage==='wait'||kStage==='done'||kcText.readOnly) return;
   const text=kcText.value.trim(); if(!text) return;
@@ -1159,14 +1321,14 @@ const ROOMS={
     ['d','도훈이도 잘 챙겨주고 있지?','3:58',false,'mom']
   ]},
   jihoon:{name:'한지훈',av:'a/av_jihoon.png',cut:true,unread:3,chat:[
-    ['date','2025년 10월 26일 일요일'],
+    ['date','2025년 12월 26일 금요일'],
     ['d','@html:<a class="tl2">7시까지</a> 조대포로 오세여','2:40'],
     ['me','응','2:40'],
     ['me','지훈아 오늘 도훈이도 오는 거였어?','7:12'],
     ['d','예','7:13'],
     ['d','오늘 경민이 고기 사주려고 만난건데 입꼬\n리 리프팅 좀 하실게여','7:15'],
     ['d','오늘 주인공은 경민이임 비련의 남주컨셉\nㄴㄴ','7:34'],
-    ['date','2025년 10월 27일 월요일'],
+    ['date','2025년 12월 27일 토요일'],
     ['d','어제 얼마 나왔어요?','3:05'],
     ['d','경민이 빼고 엔빵 ㄱㄱ','3:06'],
     ['me','아','3:06'],
@@ -1250,19 +1412,20 @@ function updateBadges(){
 (function(){
   const FOLD='<svg width="15" height="12" viewBox="0 0 15 12"><path d="M1 2.2C1 1.5 1.5 1 2.2 1h3.3l1.4 1.5h5.9c.7 0 1.2.5 1.2 1.2v6.1c0 .7-.5 1.2-1.2 1.2H2.2C1.5 11 1 10.5 1 9.8Z" fill="none" stroke="#8A8A8E" stroke-width="1.1"/><path d="M1 4.3h13" stroke="#8A8A8E" stroke-width="1.1"/></svg>';
   const NOTES=[
-    {sec:'4월',list:'4/18/26',date:'2026년 4월 18일 오전 4:20',pad:355,text:'신정환\n\n개변태야'},
+    {sec:'4월',list:'4/18/26',date:'2026년 4월 18일 오전 4:20',pad:351,text:'신정환\n\n개변태야'},
     {sec:'4월',list:'4/17/26',date:'2026년 4월 17일 오후 2:42',pad:94,text:'형ㅠ 나 또 폰꺼짐;;\n또? 내가 사준 보조배터리는\n두고 왔어ㅓㅓㅓㅓ\n🖤 >.<\n\n  오늘 형 집에서 자고 갈래?\nㅋㅋㅋㅋ생각해볼게~\n자고 가\nㅋㅋㅋㅋ형 자판은 ㅋ 오타 안 난다\n먹고 싶은 거 없어?\n아 알겠어 갈게 간다곩ㅋㅋㅋ이제 집중하자'},
-    {sec:'2021년',list:'11/7/21',date:'2021년 11월 7일 오후 6:05',pad:0,text:'신발사이즈 260\n초콜릿은 안먹음 페레로쉐는먹음\n햄버거 야채 빼고먹음\n아샤추 맛없다고 함\n해산물을 안먹음\n고구마 좋아함\n귀쪽에 간지럼 많이탐\n요즘 아샤추만 마심\n병아리좋아함\n추위를 많이탐\n이제 해산물을 먹음\n잠옷 꼭 입고자'}
+    {sec:'2025년',list:'5/29/25',date:'2025년 5월 29일 오후 7:33',pad:0,text:'모르겠다\n뭐 때문에 화가 났는지도 어떻게 해야할지도\n근데 도훈이도 일부러 그런 건 아닐 거니까\n근데 왜 그랬지? 말을 왜 그렇게 해\n\n이게 이해가 안 되나..? 왜 안 되지..? 이해가 안 되네.. 아 찬물로 샤워나 해야겠다\n\n근데 나를 이렇게 모르나 나도 도훈이 다 알지 못 하긴해 모를 수 있지 아니 근데 너무 모르잖아\n\n도훈이가좋아서문제야이러는데도좋아서문제라고좋아하는사람한테이렇게화낼수없잖아'},
+    {sec:'2021년',list:'11/7/21',date:'2021년 11월 7일 오후 6:05',pad:0,title:'도훈',text:'신발사이즈 260\n초콜릿은 안먹음 페레로쉐는먹음\n햄버거 야채 빼고먹음\n아샷추 맛없다고 함\n해산물을 안먹음\n고구마 좋아함\n귀쪽에 간지럼 많이탐\n요즘 아샷추만 마심\n병아리좋아함\n추위를 많이탐\n이제 해산물을 먹음\n잠옷 꼭 입고자\n술마시면 목부터 빨개짐....'}
   ];
   const list=document.getElementById('moList'), memo=document.getElementById('memo'), note=document.getElementById('moNote');
   let lastSec=null, card=null;
   NOTES.forEach((n,i)=>{
     if(n.sec!==lastSec){ list.insertAdjacentHTML('beforeend','<div class="mo-sec">'+n.sec+'</div><div class="mo-card"></div>'); card=list.lastElementChild; lastSec=n.sec; }
-    const lines=n.text.split('\n').map(l=>l.trim()).filter(Boolean);
+    const lines=(n.title?[n.title]:[]).concat(n.text.split('\n').map(l=>l.trim()).filter(Boolean));
     const r=document.createElement('div'); r.className='mo-row';
     r.innerHTML='<div class="t"></div><div class="m"><span>'+n.list+'</span><i></i></div><div class="f">'+FOLD+'메모</div>';
     r.querySelector('.t').textContent=lines[0]; r.querySelector('.m i').textContent=lines[1]||'추가 텍스트 없음'; r.querySelector('.m i').style.fontStyle='normal';
-    r.addEventListener('click',()=>{ document.getElementById('moDate').textContent=n.date; const b=document.getElementById('moBody'); b.textContent=n.text; b.style.marginTop=(34+n.pad)+'px'; note.querySelector('.mo-scroll').scrollTop=0; note.classList.add('open'); });
+    r.addEventListener('click',()=>{ document.getElementById('moDate').textContent=n.date; const b=document.getElementById('moBody'); b.textContent=n.text; const tEl=document.getElementById('moTitle'); tEl.textContent=n.title||''; tEl.style.display=n.title?'':'none'; if(n.title) b.style.removeProperty('margin-top'); else b.style.setProperty('margin-top',(34+n.pad)+'px','important'); note.querySelector('.mo-scroll').scrollTop=0; note.classList.add('open'); });
     card.appendChild(r);
   });
   const sc=document.getElementById('moScroll');
@@ -1279,7 +1442,7 @@ const igB=document.getElementById('igBanner'), insta=document.getElementById('in
 let igT=null, igShown=false;
 function showIgBanner(){
   if(igShown) return; igShown=true; clearTimeout(igT);
-  if(navigator.vibrate) navigator.vibrate([12,40,12]);
+  buzzDm();
   igB.animate([{transform:'translateY(0) scale(.96)',opacity:0},{transform:'translateY(70px) scale(.98)',opacity:.85,offset:.35},{transform:'translateY(133px) scale(1.005)',opacity:1,offset:.75},{transform:'translateY(130px) scale(1)',opacity:1}],{duration:950,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'});
   igT=setTimeout(hideIgBanner,5000);
 }
@@ -1319,11 +1482,11 @@ document.getElementById('stTop').addEventListener('click',()=>{
 stSc.addEventListener('scroll',()=>{ if(!dm2Done && stSc.scrollTop>stSc.scrollHeight-stSc.clientHeight-40){ dm2Done=true; showDm2(); } });
 const igB2=document.createElement('div'); igB2.className='ig-banner b2'; igB2.innerHTML='<img src="a/ig_banner2.png" alt="">'; document.getElementById('phone').appendChild(igB2);
 let dm2T=null;
-function showDm2(){ if(navigator.vibrate) navigator.vibrate([12,40,12]);
+function showDm2(){ buzzDm();
   igB2.animate([{transform:'translateY(0) scale(.96)',opacity:0},{transform:'translateY(70px) scale(.98)',opacity:.85,offset:.35},{transform:'translateY(141px) scale(1.005)',opacity:1,offset:.75},{transform:'translateY(138px) scale(1)',opacity:1}],{duration:950,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'});
   clearTimeout(dm2T); dm2T=setTimeout(hideDm2,6000); }
 function hideDm2(){ clearTimeout(dm2T); igB2.animate([{transform:'translateY(138px)',opacity:1},{transform:'translateY(126px) scale(.99)',opacity:1,offset:.25},{transform:'translateY(0) scale(.96)',opacity:0}],{duration:620,easing:'cubic-bezier(.45,0,.55,1)',fill:'forwards'}); }
-igB2.addEventListener('click',()=>{ hideDm2(); insta.style.transformOrigin='50% 92%'; setTimeout(()=>{ closeApp(); if(window.onReturnHome) window.onReturnHome('insta'); },120); });
+igB2.addEventListener('click',()=>{ hideDm2(); insta.style.transformOrigin='50% 92%'; setTimeout(()=>showCall('insta'),900); });
 document.getElementById('stBack').addEventListener('click',()=>{ stEl.classList.remove('open'); setTimeout(stReset,400); });
 (function(){ let sx=null,sy=0; stEl.addEventListener('pointerdown',e=>{const p=pt(e); if(p.x<24){sx=p.x;sy=p.y;}});
   stEl.addEventListener('pointerup',e=>{ if(sx!==null){const p=pt(e); if(p.x-sx>70&&Math.abs(p.y-sy)<60){ stEl.classList.remove('open'); setTimeout(stReset,400);} } sx=null; }); })();
@@ -1344,7 +1507,7 @@ function dmShow(i){
   dmLayer.appendChild(el);
   if(dmCur){ const old=dmCur; old.animate([{transform:'translateY(0) scale(1)',opacity:1},{transform:'translateY(-6px) scale(.94)',opacity:0}],{duration:380,easing:'cubic-bezier(.4,0,.6,1)',fill:'forwards'}).onfinish=()=>old.remove(); }
   el.animate([{transform:'translateY(-110px) scale(.96)',opacity:0},{transform:'translateY(-40px) scale(.98)',opacity:.85,offset:.35},{transform:'translateY(3px) scale(1.005)',opacity:1,offset:.75},{transform:'translateY(0) scale(1)',opacity:1}],{duration:1050,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'});
-  if(navigator.vibrate) navigator.vibrate([10,40,10]);
+  buzzDm();
   dmCur=el;
   let y0=null; el.addEventListener('pointerdown',e=>{y0=pt(e).y; el.setPointerCapture(e.pointerId);});
   el.addEventListener('pointerup',e=>{ if(y0!==null&&y0-pt(e).y>15) dmHide(el); y0=null; });
@@ -1398,6 +1561,167 @@ async function runDmScene(){
 (function(){ const sc=document.getElementById('ytScroll'), yt=document.getElementById('youtube'); let last=0;
   sc.addEventListener('scroll',()=>{ const y=sc.scrollTop; if(y>last+6&&y>120) yt.classList.add('hide'); else if(y<last-6||y<60) yt.classList.remove('hide'); last=y; });
   window.ytReset=()=>{ sc.scrollTop=0; yt.classList.remove('hide'); last=0; };
+})();
+
+/* ===== 캘린더 ===== */
+(function(){
+  const G='#7fcca0', P='#d58fe0', B='#86b5f5';
+  // [제목, 색 종류] : 'me'=내 일정(파란), 'kr'=공휴일(초록), 'both'=공휴일+기념일(초록·보라)
+  const EV={
+    '2024-10-1':[['국군의 날','kr']], '2024-10-3':[['개천절','kr']], '2024-10-9':[['한글날','kr']], '2024-10-22':[['도훈❤️','me']],
+    '2025-1-1':[['새해','both']], '2025-1-27':[['임시공휴일','both']], '2025-1-28':[['설날 연휴','both']], '2025-1-29':[['설날','both']],
+    '2025-1-30':[['설날 연휴','both'],['도훈이 생일(100일축하도같이)','me','all']], '2025-5-9':[['❤️','me']],
+    '2025-12-24':[['크리스마스 이브','kr']], '2025-12-25':[['크리스마스','both']], '2025-12-26':[['7시 조대포','me','19:00','21:00']], '2025-12-27':[['도훈..🥺','me','all']], '2025-12-31':[['12월 31일','kr']],
+    '2026-3-1':[['삼일절','both'],['도훈이 경기','me','14:00','16:00']], '2026-3-2':[['대체공휴일','both']], '2026-1-30':[['도훈이 생일','me','all']], '2026-2-14':[['두쫀쿠 알바','me','11:00','17:00']], '2026-3-5':[['500일','me','all']],
+    '2026-10-1':[['국군의 날','kr']], '2026-10-3':[['개천절','both']], '2026-10-5':[['대체공휴일','both']], '2026-10-6':[['도훈팀플(저녁혼자해결하기)','me']],
+    '2026-10-9':[['한글날','both']], '2026-10-12':[['오후에 장보러가기','me']], '2026-10-15':[['도훈이 1교시 발표','me']], '2026-10-20':[['중간고사 시작','me']]
+  };
+  const TODAY={y:2026,m:10,d:25}, MIN=[2024,10], MAX=[2026,12];
+  let cy=2026, cm=10, sel={...TODAY};
+  const grid=document.getElementById('calGrid'), wrap=document.getElementById('calWrap'), ev=document.getElementById('calEv');
+  function dots(list){ if(!list) return ''; let c=[]; list.forEach(([t,k])=>{ if(k==='kr') c.push(G); else if(k==='both') c.push(G,P); else c.push(B); });
+    c=[...new Set(c)]; return '<div class="dots">'+c.map(x=>'<i style="background:'+x+'"></i>').join('')+'</div>'; }
+  function render(){
+    document.getElementById('calMonth').textContent=cm+'월'; document.getElementById('calYear').textContent=cy+'년';
+    const first=new Date(cy,cm-1,1).getDay(), days=new Date(cy,cm,0).getDate();
+    let h=''; for(let i=0;i<first;i++) h+='<div></div>';
+    for(let d=1;d<=days;d++){ const w=(first+d-1)%7, key=cy+'-'+cm+'-'+d;
+      const cls=['cal-d','has']; if(w===0||w===6) cls.push('we'); if(cy===TODAY.y&&cm===TODAY.m&&d===TODAY.d) cls.push('today'); if(cy===sel.y&&cm===sel.m&&d===sel.d) cls.push('sel');
+      h+='<div class="'+cls.join(' ')+'" data-d="'+d+'"><div class="n">'+d+'</div>'+dots(EV[key])+'</div>'; }
+    grid.innerHTML=h;
+    grid.querySelectorAll('.cal-d').forEach(c=>c.addEventListener('click',()=>{ sel={y:cy,m:cm,d:+c.dataset.d}; render(); }));
+    renderEv();
+  }
+  function renderEv(){
+    const list=(sel.y===cy&&sel.m===cm)?EV[sel.y+'-'+sel.m+'-'+sel.d]:null;
+    if(!list){ ev.innerHTML='<div class="cal-none">이벤트 없음</div>'; return; }
+    let h=''; const all=list.filter(e=>e[1]!=='me'), mine=list.filter(e=>e[1]==='me');
+    all.forEach(([t,k])=>{
+      h+='<div class="cal-row all"><span class="ic" style="background:#34a853"><svg width="11" height="11" viewBox="0 0 11 11"><rect x=".7" y="1.2" width="9.6" height="9" rx="1.4" fill="none" stroke="#fff" stroke-width="1.1"/><path d="M.7 3.6h9.6" stroke="#fff" stroke-width="1.1"/></svg></span><div class="tt">'+t+'</div><div class="tm">하루 종일</div></div>';
+      if(k==='both') h+='<div class="cal-row all"><span class="ic" style="background:#b452d8"><svg width="11" height="11" viewBox="0 0 24 24"><path d="M12 2.5l2.9 6.2 6.6.7-5 4.5 1.4 6.6L12 17.2 6.1 20.5l1.4-6.6-5-4.5 6.6-.7Z" fill="#fff"/></svg></span><div class="tt">'+t+'</div><div class="tm">하루 종일</div></div>';
+    });
+    mine.forEach(([t,k,a,b])=>{ h+= a==='all' ? '<div class="cal-row allme"><span class="bar"></span><div class="tt"></div><div class="tm">하루 종일</div></div>' : '<div class="cal-row"><span class="bar"></span><div class="tt"></div><div class="tm"><b>'+(a||'15:00')+'</b><span>'+(b||'16:00')+'</span></div></div>'; });
+    ev.innerHTML=h; const tts=ev.querySelectorAll('.cal-row:not(.all) .tt'); mine.forEach((m,i)=>tts[i].textContent=m[0]);
+  }
+  function go(dir){
+    let y=cy, m=cm+dir; if(m>12){m=1;y++;} if(m<1){m=12;y--;}
+    if(y*100+m<MIN[0]*100+MIN[1]||y*100+m>MAX[0]*100+MAX[1]) return;
+    grid.animate([{transform:'translateY(0)',opacity:1},{transform:'translateY('+(-dir*40)+'px)',opacity:0}],{duration:160,easing:'ease-in'}).onfinish=()=>{
+      cy=y; cm=m; render(); grid.animate([{transform:'translateY('+(dir*40)+'px)',opacity:0},{transform:'translateY(0)',opacity:1}],{duration:220,easing:'ease-out'}); };
+  }
+  let sy=null; wrap.addEventListener('pointerdown',e=>{ sy=pt(e).y; });
+  wrap.addEventListener('pointerup',e=>{ if(sy===null) return; const d=pt(e).y-sy; sy=null; if(d<-30) go(1); else if(d>30) go(-1); });
+  wrap.addEventListener('wheel',e=>{ e.preventDefault(); if(Math.abs(e.deltaY)>20&&!wrap._t){ wrap._t=1; go(e.deltaY>0?1:-1); setTimeout(()=>wrap._t=0,350); } },{passive:false});
+  document.getElementById('calToday').addEventListener('click',()=>{ cy=TODAY.y; cm=TODAY.m; sel={...TODAY}; render(); });
+  window.calReset=()=>{ cy=TODAY.y; cm=TODAY.m; sel={...TODAY}; render(); };
+  render();
+})();
+
+/* ===== 카메라: 짧은 영상 반복 (재생 안 되면 사진으로 자동 대체) ===== */
+(function(){ const v=document.getElementById('camVid');
+  function toURL(u){ if(!u.startsWith('data:')) return u; const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return URL.createObjectURL(new Blob([arr],{type:h.slice(5).split(';')[0]})); }
+  let loaded=false;
+  function load(){ if(loaded) return; loaded=true; const mp4=v.canPlayType('video/mp4; codecs="avc1.4D401F"'); v.src=toURL(mp4?"a/cam.mp4":"a/cam.webm"); v.load(); }
+  window.camOpen=function(){ load(); v.currentTime=0; const pr=v.play(); if(pr&&pr.catch) pr.catch(()=>{}); };
+  window.camClose=function(){ try{ v.pause(); }catch(e){} };
+  v.addEventListener('error',()=>{ v.style.display='none'; });
+})();
+
+/* ===== 걸려오는 전화 (🍠🖤) : 거절만 누를 수 있음 → 홈으로 ===== */
+const callEl=document.createElement('div'); callEl.className='call-in';
+callEl.innerHTML='<img src="a/call_in.jpg" alt=""><img class="sb" src="b/sbar_white.png" alt=""><div class="decline"></div>';
+document.getElementById('phone').appendChild(callEl);
+let callVib=null, callFrom='';
+function showCall(from){ callFrom=from; callEl.classList.add('on');
+  callEl.animate([{opacity:0,transform:'scale(1.04)'},{opacity:1,transform:'scale(1)'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)',fill:'forwards'});
+  ringStart(); }
+callEl.querySelector('.decline').addEventListener('click',()=>{
+  ringStop();
+  const kch=document.getElementById('kchat');
+  closeApp(); if(callFrom==='kakao') setTimeout(()=>kch.classList.remove('open'),420);
+  callEl.animate([{opacity:1,transform:'scale(1)'},{opacity:0,transform:'scale(.96)'}],{duration:380,easing:'ease-in',fill:'forwards'}).onfinish=()=>callEl.classList.remove('on');
+  if(window.onReturnHome) window.onReturnHome(callFrom);
+});
+
+/* ===== DM 끝 → 배너로 걸려오는 전화 (받을 때까지 반복) ===== */
+const cbEl=document.createElement('div'); cbEl.className='cb';
+cbEl.innerHTML='<img src="a/call_banner.png" alt=""><div class="bt no"></div><div class="bt ok"></div>';
+const ocEl=document.createElement('div'); ocEl.className='oncall';
+ocEl.innerHTML='<img class="sb" src="b/sbar_white.png" alt=""><div class="odot"></div><div class="st">연결 중...</div><img class="em" src="a/call_emoji.png" alt=""><img class="btns" src="a/call_btns.png" alt="">';
+document.getElementById('phone').append(cbEl,ocEl);
+const voice=new Audio(); voice.preload='auto';
+(function(){ const u="a/call_voice.mp3"; if(!u.startsWith('data:')){ voice.src=u; return; } const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); voice.src=URL.createObjectURL(new Blob([arr],{type:'audio/mpeg'})); })();
+let cbState='idle', cbTouches=0, cbVib=null;
+function vibStart(){ ringStart(); }
+function vibStop(){ ringStop(); }
+function ringBanner(){
+  cbState='ringing'; cbEl.classList.add('on');
+  cbEl.animate([{transform:'translateY(-150px) scale(.94)',opacity:0},{transform:'translateY(-30px) scale(.985)',opacity:1,offset:.45},{transform:'translateY(4px) scale(1.006)',offset:.78},{transform:'translateY(0) scale(1)',opacity:1}],{duration:900,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'});
+  vibStart();
+}
+function hideBanner(){ cbEl.animate([{transform:'translateY(0) scale(1)',opacity:1},{transform:'translateY(6px) scale(.995)',offset:.25},{transform:'translateY(-150px) scale(.95)',opacity:0}],{duration:520,easing:'cubic-bezier(.45,0,.55,1)',fill:'forwards'}).onfinish=()=>{ if(cbState!=='ringing') cbEl.classList.remove('on'); }; }
+cbEl.querySelectorAll('.bt').forEach(b=>{ b.addEventListener('pointerdown',e=>{e.stopPropagation(); b.classList.add('dn');}); ['pointerup','pointerleave','pointercancel'].forEach(ev=>b.addEventListener(ev,()=>b.classList.remove('dn'))); });
+cbEl.querySelector('.no').addEventListener('click',e=>{ e.stopPropagation(); if(cbState!=='ringing') return; vibStop(); cbState='declined'; cbTouches=0; hideBanner(); });
+cbEl.querySelector('.ok').addEventListener('click',e=>{ e.stopPropagation(); if(cbState!=='ringing') return; vibStop(); cbState='call'; startCall(); });
+// 거절 뒤 화면 아무 곳이나 5번 터치 → 다시 전화
+document.addEventListener('pointerdown',()=>{ if(cbState!=='declined') return; if(++cbTouches>=5){ cbState='wait'; setTimeout(ringBanner,700); } },true);
+window.afterDmScene=function(){ setTimeout(ringBanner,1500); };
+
+function fmt(t){ const m=Math.floor(t/60), s=t%60; return String(m).padStart(2,'0')+':'+String(s).padStart(2,'0'); }
+function startCall(){
+  // 소리 잠금 해제 (터치한 순간에 재생 시작)
+  try{ voice.muted=true; voice.currentTime=0; const p=voice.play(); if(p) p.catch(()=>{}); }catch(e){}
+  const st=ocEl.querySelector('.st'); st.textContent='연결 중...'; ocEl.classList.remove('ended'); ocEl.classList.add('on');
+  cbEl.animate([{opacity:1},{opacity:0}],{duration:250,fill:'forwards'}).onfinish=()=>cbEl.classList.remove('on');
+  ocEl.animate([{clipPath:'inset(40px 8px 668px 8px round 40px)',opacity:.6},{clipPath:'inset(0px 0px 0px 0px round 0px)',opacity:1}],{duration:480,easing:'cubic-bezier(.25,.85,.3,1)',fill:'forwards'});
+  setTimeout(()=>{
+    let sec=0; st.textContent=fmt(0);
+    try{ voice.currentTime=0; voice.muted=false; if(voice.paused){ const p=voice.play(); if(p) p.catch(()=>{}); } }catch(e){}
+    const t0=Date.now(); const tick=setInterval(()=>{ sec=Math.floor((Date.now()-t0)/1000); st.textContent=fmt(sec); },250);
+    let done=false;
+    const hang=()=>{ if(done) return; done=true; clearInterval(tick); voice.pause(); endCall(); };
+    voice.onended=hang;
+    setTimeout(hang,((voice.duration&&isFinite(voice.duration))?voice.duration:22.6)*1000+700);
+  },900);
+}
+function endCall(){
+  const st=ocEl.querySelector('.st'); st.textContent='통화 종료'; ocEl.classList.add('ended');
+  if(navigator.vibrate) navigator.vibrate(30);
+  setTimeout(()=>{
+    // 측면 버튼 누른 것처럼 화면 꺼짐 → 끝 (새로고침 전까지 검은 화면)
+    cbState='off'; vibStop(); try{ voice.pause(); }catch(e){}
+    document.querySelectorAll('audio,video').forEach(m=>{ try{ m.pause(); }catch(e){} });
+    if(navigator.vibrate) navigator.vibrate(12);
+    const off=document.createElement('div'); off.className='phone-off'; document.getElementById('phone').appendChild(off);
+    ['pointerdown','pointerup','click','touchstart','touchend','keydown','wheel'].forEach(ev=>off.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();},{passive:false}));
+    document.addEventListener('keydown',e=>{e.preventDefault();e.stopPropagation();},true);
+    off.animate([{opacity:0},{opacity:.55,offset:.35},{opacity:1}],{duration:380,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
+    if(window.afterCallScene) window.afterCallScene();
+  },1700);
+}
+
+/* ===== 전화 앱: 목록 끝이라 당기면 묵직하게 버티다 돌아오기 (아이폰 고무줄 효과) ===== */
+(function(){
+  const L=document.getElementById('dlList'); let y0=null, off=0, anim=null, wheelT=null, wAcc=0;
+  // 아이폰과 같은 공식: 당길수록 점점 더 무거워짐
+  const rub=d=>{ const a=Math.abs(d), c=0.42, r=(1-1/(a*c/700+1))*700; return d<0?-r:r; };
+  const set=v=>{ off=v; L.style.transform=v?'translateY('+v+'px)':''; };
+  function back(){ const from=off; if(!from) return; anim&&anim.cancel(); set(0);
+    anim=L.animate([{transform:'translateY('+from+'px)'},{transform:'translateY(0)'}],{duration:520,easing:'cubic-bezier(.16,.84,.34,1)'}); }
+  function curOff(){ if(anim&&anim.playState==='running'){ const m=new DOMMatrix(getComputedStyle(L).transform); return m.m42; } return off; }
+  L.addEventListener('pointerdown',e=>{ const c=curOff(); anim&&anim.cancel(); set(c);
+    // 지금 위치에서 이어 잡기
+    const a=Math.abs(c), raw=a? (a*700)/(0.42*(700-a)) : 0; y0=pt(e).y-(c<0?-raw:raw); L.setPointerCapture(e.pointerId); });
+  L.addEventListener('pointermove',e=>{ if(y0===null) return; set(rub(pt(e).y-y0)); });
+  const up=()=>{ if(y0===null) return; y0=null; back(); };
+  L.addEventListener('pointerup',up); L.addEventListener('pointercancel',up);
+  L.addEventListener('wheel',e=>{ e.preventDefault(); if(y0!==null) return; anim&&anim.cancel(); wAcc=Math.max(-160,Math.min(160,wAcc-e.deltaY*0.5)); set(rub(wAcc)); clearTimeout(wheelT); wheelT=setTimeout(()=>{ wAcc=0; back(); },140); },{passive:false});
+})();
+
+/* ===== ChatGPT: 맨 아래(최근)부터, 위로 올리면 ↓ 버튼 ===== */
+(function(){ const g=document.getElementById('gpScroll'), dn=document.getElementById('gpDown');
+  g.addEventListener('scroll',()=>dn.classList.toggle('show', g.scrollHeight-g.clientHeight-g.scrollTop>60),{passive:true});
+  dn.addEventListener('click',()=>g.scrollTo({top:g.scrollHeight,behavior:'smooth'}));
 })();
 </script>
 </body>
