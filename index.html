@@ -903,16 +903,25 @@ img{-webkit-user-drag:none;user-drag:none}
 /* ---------- 진동: 안드로이드는 진짜 진동, 아이폰·PC는 진동 소리 ---------- */
 const USE_SND=!(/Android/i.test(navigator.userAgent)&&navigator.vibrate);
 function blobURL(u){ if(!u.startsWith('data:')) return u; const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return URL.createObjectURL(new Blob([arr],{type:h.slice(5).split(';')[0]})); }
-const sDm=new Audio(), sCall=new Audio(); sDm.preload=sCall.preload='auto'; sCall.loop=true;
-sDm.src=blobURL("b/vib_dm.mp3"); sCall.src=blobURL("b/vib_call.mp3");
-let sndOK=false, ringing=false;
-function sndUnlock(){ if(sndOK||!USE_SND) return; sndOK=true;
-  [sDm,sCall].forEach(a=>{ if(a===sCall&&ringing) return; try{ a.muted=true; const p=a.play(); const done=()=>{ if(!(a===sCall&&ringing)){ a.pause(); a.currentTime=0; } a.muted=false; }; if(p&&p.then) p.then(done).catch(()=>{ a.muted=false; sndOK=false; }); else done(); }catch(e){ sndOK=false; } }); }
-['pointerdown','touchend','keydown'].forEach(ev=>document.addEventListener(ev,sndUnlock,true));
-function buzzDm(){ if(USE_SND){ try{ sDm.currentTime=0; const p=sDm.play(); p&&p.catch(()=>{}); }catch(e){} } else navigator.vibrate([12,40,12]); }
-let ringVib=null;
-function ringStart(){ ringing=true; if(USE_SND){ try{ sCall.muted=false; sCall.currentTime=0; const p=sCall.play(); p&&p.catch(()=>{}); }catch(e){} } else { clearInterval(ringVib); navigator.vibrate([400,600]); ringVib=setInterval(()=>navigator.vibrate([400,600]),1000); } }
-function ringStop(){ ringing=false; if(USE_SND){ try{ sCall.pause(); sCall.currentTime=0; }catch(e){} } else { clearInterval(ringVib); navigator.vibrate(0); } }
+// 웹오디오: 바로바로 소리 나고(지연 없음), 연달아 와도 하나도 안 빠짐
+const VIB_SRC={dm:"b/vib_dm.mp3", call:"b/vib_call.mp3"};
+let actx=null; const vbuf={}; let ringSrc=null, ringVib=null, ringing=false;
+function toAB(u){ const d=u.split(',')[1], bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return arr.buffer; }
+function loadBuf(k){ const u=VIB_SRC[k]; const p=u.startsWith('data:')?Promise.resolve(toAB(u)):fetch(u).then(r=>r.arrayBuffer());
+  p.then(ab=>new Promise((ok,no)=>{ const r=actx.decodeAudioData(ab,ok,no); if(r&&r.then) r.then(ok,no); })).then(buf=>{ vbuf[k]=buf; if(k==='call'&&ringing&&!ringSrc) playRing(); }).catch(()=>{}); }
+function sndUnlock(){ if(!USE_SND) return;
+  try{ if(navigator.audioSession&&navigator.audioSession.type!=='playback'){ try{ navigator.audioSession.type='playback'; }catch(e){} }
+    if(!actx){ const AC=window.AudioContext||window.webkitAudioContext; if(!AC) return; actx=new AC(); loadBuf('dm'); loadBuf('call'); }
+    if(actx.state!=='running') actx.resume();
+    // 아무 소리 없는 아주 짧은 소리로 잠금 해제 (들리는 소리 없음)
+    const b=actx.createBuffer(1,1,22050), s=actx.createBufferSource(); s.buffer=b; s.connect(actx.destination); s.start(0);
+  }catch(e){} }
+['pointerdown','touchend','keydown','click'].forEach(ev=>document.addEventListener(ev,sndUnlock,true));
+function playBuf(k,loop){ if(!actx||!vbuf[k]) return null; if(actx.state!=='running') actx.resume(); const s=actx.createBufferSource(); s.buffer=vbuf[k]; s.loop=!!loop; s.connect(actx.destination); s.start(0); return s; }
+function buzzDm(){ if(USE_SND) playBuf('dm'); else navigator.vibrate([12,40,12]); }
+function playRing(){ ringSrc=playBuf('call',true); }
+function ringStart(){ ringing=true; if(USE_SND){ if(ringSrc){ try{ringSrc.stop();}catch(e){} } playRing(); } else { clearInterval(ringVib); navigator.vibrate([400,600]); ringVib=setInterval(()=>navigator.vibrate([400,600]),1000); } }
+function ringStop(){ ringing=false; if(USE_SND){ if(ringSrc){ try{ringSrc.stop();}catch(e){} ringSrc=null; } } else { clearInterval(ringVib); navigator.vibrate(0); } }
 /* ---------- 화면 크기 맞추기 ---------- */
 const fit=document.getElementById('fit');
 function resize(){
