@@ -1153,10 +1153,11 @@ function showTyping(){ hideTyping(); const box=document.getElementById('kcIn'); 
 function hideTyping(){ const t=document.getElementById('kTyping'); t&&t.remove(); }
 function dPush(t){ hideTyping(); CHAT.push(['d',t,NOW]); renderChat(); updateListPreview(); toBottom(true); }
 function readAll(){ CHAT.forEach(m=>{ if(m[0]==='me') m[3]=false; }); renderChat(); toBottom(true); }
-function lockInput(on){ kcText.readOnly=on; if(on){ kcText.value=''; kcInput.classList.remove('typing'); kcText.blur(); } }
-function kakaoGoHome(){ kStage='done'; lockInput(true); kcText.blur(); setTimeout(()=>showCall('kakao'),700); }
+let kLocked=false;
+function lockInput(on){ kLocked=on; }
+function kakaoGoHome(){ kStage='done'; lockInput(true); kcText.value=''; kcInput.classList.remove('typing'); kcText.blur(); kcText.readOnly=true; setTimeout(()=>showCall('kakao'),700); }
 function sendMsg(){
-  if(kStage==='wait'||kStage==='done'||kcText.readOnly) return;
+  if(kStage==='wait'||kStage==='done'||kLocked||kcText.readOnly) return;
   const text=kcText.value.trim(); if(!text) return;
   kcText.value=''; kcInput.classList.remove('typing');
   if(!CHAT.some(m=>m[0]==='date'&&m[1]===TODAY)) CHAT.push(['date',TODAY]);
@@ -1677,17 +1678,24 @@ function startCall(){
   setTimeout(()=>{
     let sec=0; st.textContent=fmt(0);
     try{ voice.currentTime=0; voice.muted=false; if(voice.paused){ const p=voice.play(); if(p) p.catch(()=>{}); } }catch(e){}
-    const t0=Date.now(); const tick=setInterval(()=>{ sec=Math.floor((Date.now()-t0)/1000); st.textContent=fmt(sec); },250);
-    let done=false;
-    const hang=()=>{ if(done) return; done=true; clearInterval(tick); voice.pause(); endCall(); };
-    voice.onended=hang;
-    setTimeout(hang,((voice.duration&&isFinite(voice.duration))?voice.duration:22.6)*1000+700);
+    // 도훈이가 끊는 순간(음성 20.9초, 끊김 효과음 시작) → "통화 종료", 효과음이 끝나면 화면 꺼짐
+    const HANG=20.9, t0=Date.now();
+    const pos=()=> (!voice.paused&&voice.currentTime>0) ? voice.currentTime : (Date.now()-t0)/1000;
+    let ended=false, off=false;
+    const finish=()=>{ if(off) return; off=true; clearInterval(tick); if(!ended){ ended=true; showEnded(); } setTimeout(screenOff,500); };
+    const tick=setInterval(()=>{ const t=pos();
+      if(!ended){ if(t>=HANG){ ended=true; showEnded(); } else st.textContent=fmt(Math.floor(t)); }
+      if(t>=(isFinite(voice.duration)&&voice.duration?voice.duration:22.55)+0.4) finish();
+    },100);
+    voice.onended=finish;
   },900);
 }
-function endCall(){
+function showEnded(){
   const st=ocEl.querySelector('.st'); st.textContent='통화 종료'; ocEl.classList.add('ended');
   if(navigator.vibrate) navigator.vibrate(30);
-  setTimeout(()=>{
+}
+function screenOff(){
+  {
     // 측면 버튼 누른 것처럼 화면 꺼짐 → 끝 (새로고침 전까지 검은 화면)
     cbState='off'; vibStop(); try{ voice.pause(); }catch(e){}
     document.querySelectorAll('audio,video').forEach(m=>{ try{ m.pause(); }catch(e){} });
@@ -1697,7 +1705,7 @@ function endCall(){
     document.addEventListener('keydown',e=>{e.preventDefault();e.stopPropagation();},true);
     off.animate([{opacity:0},{opacity:.55,offset:.35},{opacity:1}],{duration:380,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'});
     if(window.afterCallScene) window.afterCallScene();
-  },1700);
+  }
 }
 
 /* ===== 전화 앱: 목록 끝이라 당기면 묵직하게 버티다 돌아오기 (아이폰 고무줄 효과) ===== */
