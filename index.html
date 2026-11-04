@@ -517,16 +517,104 @@ img{-webkit-user-drag:none;user-drag:none}
 .gp-down.show{opacity:1;transform:none;pointer-events:auto}
 #chatgpt .sb{position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:5;pointer-events:none}
 .gp-homehot{position:absolute;left:0;right:0;top:790px;bottom:0;z-index:6}
+
+/* ===== 인스타 게시물 (사진 넘기기) ===== */
+.ig-post .igp-head{position:absolute;left:0;top:0;width:375px;height:158px;pointer-events:none;z-index:2}
+.ig-post .igp-sc{position:absolute;inset:0;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none}
+.ig-post .igp-sc::-webkit-scrollbar{display:none}
+.ig-post .igp-sp{width:1px}
+.ig-post .igp-ph{position:absolute;left:0;top:158px;width:375px;height:499.33px;overflow:hidden;touch-action:pan-y;background:#000}
+.ig-post .igp-track{display:flex;height:100%;will-change:transform}
+.ig-post .igp-track img{width:375px;height:100%;flex:none;display:block;pointer-events:none}
+.ig-post .igp-cnt{position:absolute;left:326.33px;top:13.33px;width:35.33px;height:27.33px;pointer-events:none}
+.ig-post .igp-bot{position:absolute;left:0;width:375px;pointer-events:none}
+.ig-post .igp-dots{position:absolute;left:0;right:0;top:669.8px;height:6px;display:flex;justify-content:center;gap:4px;pointer-events:none}
+.ig-post .igp-dots i{width:6px;height:6px;border-radius:50%;background:rgb(220,224,229);transition:background .2s}
+.ig-post .igp-dots i.on{background:rgb(84,101,246)}
+
+/* ===== 인스타 댓글 ===== */
+.ig-post .igp-cnum{position:absolute;left:81.67px;font:500 14.6px/17px -apple-system,"SF Pro Text",Inter,sans-serif;color:#0c0f13;letter-spacing:-.2px;pointer-events:none}
+.ig-post .igp-plane{position:absolute;width:25.33px;height:24px;pointer-events:none}
+.igc{position:absolute;inset:0;z-index:8;visibility:hidden;font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.igc.on{visibility:visible}
+.igc-dim{position:absolute;inset:0;background:rgba(0,0,0,.65);opacity:0;transition:opacity .3s}
+.igc.open .igc-dim{opacity:1}
+.igc-sheet{position:absolute;left:0;right:0;top:243.67px;bottom:0;background:#fff;border-radius:32px 32px 0 0;transform:translateY(100%);transition:transform .38s cubic-bezier(.22,.8,.3,1);overflow:hidden}
+.igc.open .igc-sheet{transform:none}
+.igc-grab{position:absolute;left:0;right:0;top:0;height:62px;z-index:2;touch-action:none}
+.igc-grab i{position:absolute;left:170.33px;top:15px;width:34px;height:1.8px;border-radius:1px;background:rgb(205,207,210)}
+.igc-grab b{position:absolute;left:0;right:0;top:28.5px;text-align:center;font-size:15.6px;font-weight:700;color:#0c0f13;letter-spacing:-.3px}
+.igc-share{position:absolute;left:314.5px;top:16.9px;width:44.6px;height:44.6px;border-radius:50%;background:#fff;box-shadow:0 0 0 .5px rgba(0,0,0,.07),0 4px 18px rgba(0,0,0,.09);z-index:3;pointer-events:none}
+.igc-share img{position:absolute;left:10.3px;top:11.3px;width:23.3px;height:22px}
+.igc-list{position:absolute;left:0;right:0;top:62px;bottom:132px;overflow-y:auto;overflow-x:hidden;touch-action:pan-y;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;scrollbar-width:none;padding:17px 0 24px}
+.igc-list::-webkit-scrollbar{display:none}
+.igc-c{position:relative;padding:0 50px 0 52.4px;margin-bottom:18px;min-height:32px;-webkit-user-select:none;user-select:none}
+.igc-c>.av{position:absolute;left:12.2px;top:0;width:31.7px;height:31.7px;border-radius:50%}
+.igc-c.rp{padding-left:84px;margin-bottom:13px}
+.igc-c.rp>.av{left:52px;width:24px;height:24px}
+.igc-c .n{font-size:13.5px;font-weight:600;line-height:18px;color:#0c0f13;margin-top:-2px;letter-spacing:-.15px;word-break:break-all}
+.igc-c .n span{font-weight:400;color:rgb(104,111,120)}
+.igc-c .t{font-size:14.8px;line-height:19.2px;color:#0c0f13;margin-top:1px;letter-spacing:-.3px;word-break:break-all;white-space:pre-wrap}
+.igc-c .t a{color:rgb(49,67,227)}
+.igc-c .r{display:inline-block;font-size:12.8px;font-weight:500;line-height:18px;color:rgb(104,111,120);margin-top:3px;letter-spacing:-.2px}
+.igc-c .h{position:absolute;right:28px;top:20px;width:20.7px;height:18.3px;opacity:.95}
+.igc-c.rp .h{top:20px}
+.igc-more{position:relative;margin:-6px 0 18px 85px;font-size:12.8px;font-weight:600;line-height:18px;color:rgb(104,111,120);letter-spacing:-.2px;display:inline-block}
+.igc-more:before{content:"";position:absolute;left:-31px;top:9px;width:22px;height:.7px;background:rgb(170,174,180)}
+.igc-replies{display:none}.igc-replies.on{display:block}
+.igc-new{animation:igcIn .45s ease}
+@keyframes igcIn{from{background:rgba(0,0,0,.05)}to{background:transparent}}
+.igc-rep{position:absolute;left:0;right:0;bottom:132px;height:38px;background:#f0f1f3;display:none;align-items:center;padding:0 16px;font-size:13px;color:rgb(104,111,120);letter-spacing:-.2px;z-index:2}
+.igc-rep.on{display:flex}
+.igc-rep span{flex:1}.igc-rep i{font-style:normal;font-size:14px;padding:6px}
+.igc-bar{position:absolute;left:0;right:0;bottom:0;height:131.67px;border-top:.4px solid rgb(231,234,238);background:#fff}
+.igc-bar img{position:absolute;left:0;top:0;width:375px;height:131.67px;pointer-events:none}
+.igc-emo{position:absolute;left:8px;right:8px;top:4px;height:38px;display:flex}
+.igc-emo span{flex:1;opacity:0}
+.igc-me{position:absolute;left:14px;top:48px;width:48px;height:48px;border-radius:50%}
+.igc-in{position:absolute;left:80.5px;top:50.5px;width:203px;height:42.5px;border:0;outline:0;background:transparent;font:15.4px -apple-system,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif;color:#0c0f13;letter-spacing:-.3px;-webkit-user-select:text;user-select:text;padding:0}
+.igc-in::placeholder{color:rgb(104,111,120);opacity:1}
+.igc-send{position:absolute;left:300px;top:55.5px;width:52px;height:32px;border-radius:16px;background:rgb(68,86,240);display:none;align-items:center;justify-content:center}
+.igc-bar.typing:after{content:"";position:absolute;left:283px;top:53px;width:72px;height:37px;background:#fff}
+.igc-bar .igc-send{z-index:2}
+.igc-bar.typing .igc-send{display:flex}
+.igc-modal{position:absolute;inset:0;z-index:5;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center}
+.igc-modal.on{display:flex}
+.igc-modal .box{width:270px;border-radius:14px;background:rgba(242,242,246,.98);text-align:center;overflow:hidden}
+.igc-modal b{display:block;margin:19px 16px 2px;font-size:17px;font-weight:600;color:#000}
+.igc-modal p{margin:0 16px 12px;font-size:13px;color:#000;line-height:17px}
+.igc-modal input{display:block;margin:0 16px;width:238px;height:30px;border:.5px solid #c7c7cc;border-radius:7px;background:#fff;padding:0 8px;font:14px -apple-system,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif;outline:0;-webkit-user-select:text;user-select:text}
+.igc-modal .err{min-height:14px;margin:5px 16px 6px;font-size:12px;color:#e0245e}
+.igc-modal .bt{display:flex;border-top:.5px solid #c3c3c8}
+.igc-modal .bt span{flex:1;height:44px;line-height:44px;font-size:17px;color:#007aff;cursor:pointer}
+.igc-modal .bt span+span{border-left:.5px solid #c3c3c8;font-weight:600}
+.igc-act{position:absolute;left:8px;right:8px;bottom:-200px;z-index:6;transition:bottom .3s cubic-bezier(.22,.8,.3,1)}
+.igc-act.on{bottom:30px}
+.igc-act .g{background:rgba(250,250,252,.98);border-radius:14px;margin-top:8px;overflow:hidden}
+.igc-act .g div{height:56px;line-height:56px;text-align:center;font-size:19px;color:#007aff;font-weight:600}
+.igc-act .g .del{color:#ff3b30;font-weight:400}
+.igc-toast{position:absolute;left:50%;bottom:150px;transform:translateX(-50%) translateY(10px);background:rgba(38,38,38,.92);color:#fff;font-size:13.5px;padding:10px 16px;border-radius:10px;white-space:nowrap;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:7}
+.igc-toast.on{opacity:1;transform:translateX(-50%)}
+.ig-link{position:absolute;inset:0;z-index:9;background:rgba(0,0,0,.35);display:none;align-items:center;justify-content:center;font-family:-apple-system,"SF Pro Text","Apple SD Gothic Neo","Noto Sans KR",sans-serif}
+.ig-link.on{display:flex;animation:igLk .22s ease}
+@keyframes igLk{from{opacity:0}to{opacity:1}}
+.ig-link .box{width:270px;border-radius:14px;background:rgba(242,242,246,.97);text-align:center;overflow:hidden;animation:igLkB .25s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes igLkB{from{transform:scale(1.15)}to{transform:none}}
+.ig-link b{display:block;margin:19px 16px 3px;font-size:17px;font-weight:600;color:#000;letter-spacing:-.3px}
+.ig-link p{margin:0 16px 18px;font-size:13px;color:#000;line-height:17px;letter-spacing:-.2px}
+.ig-link .bt{display:flex;border-top:.5px solid #c3c3c8}
+.ig-link .bt span{flex:1;height:44px;line-height:44px;font-size:17px;color:#007aff;cursor:pointer}
+.ig-link .bt span+span{border-left:.5px solid #c3c3c8;font-weight:600}
 </style>
 </head>
 <body>
 <div id="stage"><div id="fit"><div id="phone">
 
   <!-- 홈화면 -->
-  <div class="screen" id="home" style="background-image:url('b/home.jpg')"></div>
+  <div class="screen" id="home" style="background-image:url('d/home.jpg')"></div>
 
   <!-- 잠금화면 -->
-  <div class="screen" id="lock" style="background-image:url('b/lock.jpg')">
+  <div class="screen" id="lock" style="background-image:url('d/lock.jpg')">
     <div id="torch"></div>
     <div class="hot press" id="lflash"></div>
     <div class="hot press" id="lcam"></div>
@@ -535,11 +623,11 @@ img{-webkit-user-drag:none;user-drag:none}
 
   <!-- ===== 카카오톡 ===== -->
   <div class="screen appscr" id="kakao">
-    <img class="ktop" src="b/kt_top.png" alt="">
+    <img class="ktop" src="d/kt_top.png" alt="">
     <div class="klist">
       <div class="krow" id="row-dohoon">
         <img class="av" src="a/av_dohoon.png" alt="">
-        <div class="nm" style="top:2.8px;height:23px"><img src="b/name_dohoon.png" style="height:23px;width:41.3px" alt="🍠🖤"><img class="pin" src="b/pin.png" alt=""></div>
+        <div class="nm" style="top:2.8px;height:23px"><img src="d/name_dohoon.png" style="height:23px;width:41.3px" alt="🍠🖤"><img class="pin" src="d/pin.png" alt=""></div>
         <div class="pv">이따봐ㅏㅏ</div>
         <div class="tm">오후 12:08</div>
       </div>
@@ -564,7 +652,7 @@ img{-webkit-user-drag:none;user-drag:none}
         <div class="tm">10월 21일</div>
       </div>
     </div>
-    <img class="ktab" src="b/kt_tab.png" alt="">
+    <img class="ktab" src="d/kt_tab.png" alt="">
     <div class="ktabhot" data-close></div>
 
     <!-- 카톡 채팅방 (도훈) -->
@@ -573,7 +661,7 @@ img{-webkit-user-drag:none;user-drag:none}
         <div class="kc-cut"></div>
       </div></div>
       <div class="kc-head">
-        <img class="sb" src="b/sbar_clear.png" alt="">
+        <img class="sb" src="d/sbar_clear.png" alt="">
         <div class="kc-back" id="kcBack"><svg width="13" height="22" viewBox="0 0 13 22"><path d="M11 1.5 1.8 11l9.2 9.5" fill="none" stroke="#141414" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></svg><span>3</span></div>
         <img class="kc-title" src="a/emoji_dohoon.png" style="width:43.3px;height:23.1px;top:59.5px" alt="">
         <div class="kc-glass">
@@ -598,11 +686,11 @@ img{-webkit-user-drag:none;user-drag:none}
 
   <!-- ===== MYBOX ===== -->
   <div class="screen appscr" id="mybox">
-    <div class="mb-scroll"><img src="b/mybox_grid.jpg" alt=""><div class="pad"></div></div>
-    <img class="sb" src="b/sbar_light.png" alt="">
+    <div class="mb-scroll"><img src="d/mybox_grid.jpg" alt=""><div class="pad"></div></div>
+    <img class="sb" src="d/sbar_light.png" alt="">
     <div class="mb-pill"><span>년</span><span>월</span><span>일</span><span class="on">전체</span></div>
     <div class="mb-plus"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M10 1.5v17M1.5 10h17" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/></svg></div>
-    <img class="tab" src="b/mybox_tab.png" alt="">
+    <img class="tab" src="d/mybox_tab.png" alt="">
     <div class="tabhot" data-close></div>
   </div>
 
@@ -610,34 +698,34 @@ img{-webkit-user-drag:none;user-drag:none}
   <!-- ===== Safari ===== -->
   <div class="screen appscr" id="safari">
     <div class="sf-scroll">
-      <div class="sf-top"><img class="sfC" src="b/sf_topC.png" alt=""><img class="sfE" src="b/sf_topE.png" alt=""><div class="sf-allbtn" id="sfAll"></div></div>
-      <div class="sf-more"><img src="b/sf_namu.png" alt=""><div class="sf-namu" id="sfNamu"></div></div>
-      <img src="b/sf_rest.png" style="height:654.67px" alt="">
+      <div class="sf-top"><img class="sfC" src="d/sf_topC.png" alt=""><img class="sfE" src="d/sf_topE.png" alt=""><div class="sf-allbtn" id="sfAll"></div></div>
+      <div class="sf-more"><img src="d/sf_namu.png" alt=""><div class="sf-namu" id="sfNamu"></div></div>
+      <img src="d/sf_rest.png" style="height:654.67px" alt="">
       <div class="sf-pad"></div>
     </div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="sf-fade"></div>
-    <div class="sf-bar"><img class="bC" src="b/sf_barC.png" alt=""><img class="bE" src="b/sf_barE.png" alt=""></div>
+    <div class="sf-bar"><img class="bC" src="d/sf_barC.png" alt=""><img class="bE" src="d/sf_barE.png" alt=""></div>
     <div class="homehot" data-close></div>
 <div class="namu nw" id="namu">
   <div class="nw-scroll" id="nwScroll"><div class="nw-doc" id="docJ">
-<div class="nw-top"></div><img class="nw-head" src="b/nw_head.jpg" alt="">
+<div class="nw-top"></div><img class="nw-head" src="d/nw_head.jpg" alt="">
 <div class="nw-title">신정환</div><div class="nw-time">최근 수정 시각: 2026-10-23 01:24:07</div>
-<img class="nw-btns" src="b/nw_btns.png" alt="">
+<img class="nw-btns" src="d/nw_btns.png" alt="">
 <div class="nw-cat"><div class="txt">분류: <a>평산 신씨</a> <span class="bar">|</span> <a class="igl">yuxhome</a> <span class="bar">|</span> <a>a고등학교 출신</a></div><span class="more">더 보기</span></div>
-<table class="nw-prof"><tr><th class="hd" colspan="2">신정환<small>Shin Jeong-hwan</small></th></tr><tr><td class="lb">생일</td><td>11월 7일</td></tr><tr><td class="lb">국적</td><td><img class="flag" src="b/nw_flag.png" alt=""><a class="l">대한민국</a></td></tr><tr><td class="lb">신체</td><td>181cm | 62kg | <a class="l">O형</a></td></tr><tr><td class="lb">가족</td><td>부모님, 누나 2명</td></tr><tr><td class="lb">학력</td><td><a class="l">a고등학교</a> <span class="s">(졸업)</span><br><a class="l">A대학교</a> <span class="s">(재학)</span></td></tr><tr><td class="lb">MBTI</td><td><a class="l">INFP</a></td></tr><tr><td class="lb">인스타그램</td><td>@shin.y<br><a class="l igl">@yuxhome</a></td></tr></table>
+<table class="nw-prof"><tr><th class="hd" colspan="2">신정환<small>Shin Jeong-hwan</small></th></tr><tr><td class="lb">생일</td><td>11월 7일</td></tr><tr><td class="lb">국적</td><td><img class="flag" src="d/nw_flag.png" alt=""><a class="l">대한민국</a></td></tr><tr><td class="lb">신체</td><td>181cm | 62kg | <a class="l">O형</a></td></tr><tr><td class="lb">가족</td><td>부모님, 누나 2명</td></tr><tr><td class="lb">학력</td><td><a class="l">a고등학교</a> <span class="s">(졸업)</span><br><a class="l">A대학교</a> <span class="s">(재학)</span></td></tr><tr><td class="lb">MBTI</td><td><a class="l">INFP</a></td></tr><tr><td class="lb">인스타그램</td><td>@shin.y<br><a class="l igl">@yuxhome</a></td></tr></table>
 <div class="nw-toc"><div class="th">목차<svg width="14" height="9" viewBox="0 0 14 9"><path d="M1.2 1.5 7 7.3l5.8-5.8" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="it"><b>1.</b> 개요</div><div class="it"><b>2.</b> 특징</div><div class="it sub"><b>2.1.</b> 신유</div><div class="it"><b>3.</b> <span class="go" data-go="docD">김도훈</span></div><div class="it sub"><b>3.1.</b> a고 쌍둥이</div><div class="it sub"><b>3.2.</b> 교제</div><div class="it sub"><b>3.3.</b> 결별</div><div class="it sub"><b>3.4.</b> 재결합</div><div class="it sub"><b>3.5.</b> 동거</div><div class="it"><b>4.</b> 여담</div></div>
 <div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>1.</b> 개요</div><div class="ed">[편집]</div></div><div class="nw-p">대한민국의 대학생. <a class="l">a고등학교</a>를 졸업했으며, 현재 <a class="l">A대학교</a> 3학년에 재학 중이다. 대학 진학 후 자취를 해 왔으며, 현재는 연인과 함께 살고 있다.</div><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>2.</b> 특징</div><div class="ed">[편집]</div></div><ul class="nw-ul"><li>MBTI는 <a class="l">INFP</a>. 생각이 많은 편이다.</li><li>고민이 생겨도 남에게 쉽게 털어놓지 않고 혼자 삭이는 성격이다. 이 성격은 훗날 연애사에도 큰 영향을 미치게 된다.</li><li>인스타그램 본계정 @shin.y 외에 부계정 <a class="l igl">@yuxhome</a>을 운영하고 있다.</li></ul><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>2.1.</b> 신유</div><div class="ed">[편집]</div></div><div class="nw-p">어린 시절 집에서 불리던 이름이다. 부계정 <a class="l igl">yuxhome</a> 역시 이 이름에서 따왔다.</div><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.</b> 김도훈</div><div class="ed">[편집]</div></div><div class="nw-p">a고등학교 후배이자 연인. 2024년 10월 23일부터 교제를 시작했다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.1.</b> a고 쌍둥이</div><div class="ed">[편집]</div></div><div class="nw-p">같은 동네에 살며 같은 고등학교를 다녔다. 학년이 다름에도 항상 붙어 다녀 교내에서 <b>a고 쌍둥이</b>라고 불릴 만큼 유명했다.</div><div class="nw-p">다만 정확히 언제부터 알고 지낸 사이인지는 알려져 있지 않다. 고등학교 시절 이전부터 알던 사이였는지에 대해서도 둘은 말을 아끼는 편이며, 동창인 공백<sup class="fn" data-fn="gb" data-n="1">[1]</sup>조차 모른다고 한다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.2.</b> 교제</div><div class="ed">[편집]</div></div><div class="nw-p">2024년 10월 23일부터 교제를 시작했다. 100일과 200일은 함께 챙겼지만, 1주년을 불과 사흘 앞둔 2025년 10월 20일 결별하면서 1주년은 함께 보내지 못했다.</div><div class="nw-p">이 때문에 재결합 이후 맞은 <b>500일</b>(2026년 3월 6일)을 유독 크게 챙겼다고 한다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.3.</b> 결별</div><div class="ed">[편집]</div></div><div class="nw-p"><a class="l">INFP</a>인 신정환은 <a class="l">ISTP</a>인 연인과의 성향 차이를 크게 느끼고 있었다. 좋아하는 만큼 서로 같기를 바랐지만, 이를 연인과 대화로 풀기보다는 혼자 속으로 삼켰다. 원래 생각이 많은 성격까지 겹쳐 1주년을 앞두고 <b>'좋지만 이렇게 괴로운데 계속 만나는 게 맞을까'</b>라는 고민이 깊어졌다고 한다.</div><div class="nw-p">그렇다고 고등학교 시절부터 이어 온 관계가 이별로 끝나는 것만은 죽어도 싫었다. 복잡한 생각을 정리할 시간이 필요했던 신정환은 2025년 10월 20일 아침부터 오후까지 연락을 받지 않았고, 연인의 입장에서는 사실상 잠수였다.</div><div class="nw-p">하루 종일 연락을 시도하던 김도훈은 마침내 전화가 닿자 말이 강하게 나왔고, 가뜩이나 마음이 복잡했던 신정환과 통화 중 다툼이 벌어졌다. 이어진 메신저 대화에서 신정환은 <b>"우리 각자 일주일만 시간을 좀 가지자"</b>고 말했는데, 이는 생각을 정리하겠다는 뜻이었으나 김도훈은 이를 사실상의 이별 통보로 받아들였다. 결국 김도훈은 <b>"절대 연락하지마"</b>라는 말을 남겼다.</div><div class="nw-p">일주일 뒤 신정환이 전화를 걸었지만 이미 차단된 상태였고, 학교에서 마주쳤을 때도 김도훈은 일행과 함께 못 본 척 지나갔다. 생각을 다 정리하기엔 짧았던 일주일 탓에 상황을 받아들일 여유조차 없던 신정환은 그렇게 어영부영 연말을 맞았다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.4.</b> 재결합</div><div class="ed">[편집]</div></div><div class="nw-p">2025년 12월 26일, <a class="l">한지훈</a>의 제안으로 a고 후배 <a class="l">경민</a>에게 고기를 사 주는 연말 모임이 열렸고, 이 자리에 김도훈이 나타났다. 은연중에 김도훈이 자신을 피해 오지 않을 거라 생각했던 신정환은 당황했지만, 오랜만에 얼굴을 본 것만으로도 반가웠다고 한다.</div><div class="nw-p">귀갓길에 둘만 남게 되자 신정환은 당시에는 정말 생각을 정리할 시간이 필요했을 뿐이며, 그 기간이 지나면 돌아갈 생각이었다고 마음을 털어놓았다.</div><div class="nw-p">다음 날인 12월 27일, 김도훈은 모임 정산을 핑계로 먼저 연락했다. 사실은 전날의 고백이 술김에 한 말이었는지 확인하고 싶었던 것인데, 신정환이 술을 마시지 않았다고 답하자 마음을 풀고 장문의 메시지를 보냈다. 신정환은 곧바로 <b>"너 지금 어디야?"</b>라고 답했고, 둘은 그날 바로 다시 만나기 시작했다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.5.</b> 동거</div><div class="ed">[편집]</div></div><div class="nw-p">교제 500일 무렵부터 신정환은 관계의 다음 단계로 동거를 원했지만, 김도훈의 첫 반응은 거절이었다. 이후 신정환은 김도훈의 생일에 맞춰 다시 진지하게 제안했고, 평소 속마음을 잘 드러내지 않던 신정환이 준비한 생일 이벤트에 크게 감동한 김도훈은 며칠 뒤 어머니에게 <b>출가 선언</b>을 했다.</div><div class="nw-p">이후 김도훈의 어머니가 신정환을 집으로 초대했다. 이를 사실상 상견례로 받아들인 신정환은 말 그대로 쫙 빼입고 방문했고, 결국 동거를 허락받았다. 현재 동거를 시작한 지 얼마 되지 않았다.</div><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>4.</b> 여담</div><div class="ed">[편집]</div></div><ul class="nw-ul"><li>카카오톡에 연인을 🍠🖤로 저장해 두었다.</li><li>교제 100일(2025년 1월 30일)이 김도훈의 생일과 같은 날이다.</li></ul>
 </div><div class="nw-doc" id="docD" hidden>
-<div class="nw-top"></div><img class="nw-head" src="b/nw_head.jpg" alt="">
+<div class="nw-top"></div><img class="nw-head" src="d/nw_head.jpg" alt="">
 <div class="nw-title">김도훈</div><div class="nw-time">최근 수정 시각: 2026-10-22 23:51:40</div>
-<img class="nw-btns" src="b/nw_btns.png" alt="">
+<img class="nw-btns" src="d/nw_btns.png" alt="">
 <div class="nw-cat"><div class="txt">분류: <a>김녕 김씨</a> <span class="bar">|</span> <a>dhun.o.o</a> <span class="bar">|</span> <a>a고등학교 출신</a></div><span class="more">더 보기</span></div>
-<table class="nw-prof"><tr><th class="hd" colspan="2">김도훈<small>Kim Do-hoon</small></th></tr><tr><td class="lb">생일</td><td>1월 30일</td></tr><tr><td class="lb">국적</td><td><img class="flag" src="b/nw_flag.png" alt=""><a class="l">대한민국</a></td></tr><tr><td class="lb">신체</td><td>180cm | 58kg | <a class="l">B형</a></td></tr><tr><td class="lb">가족</td><td>부모님, 형</td></tr><tr><td class="lb">학력</td><td><a class="l">a고등학교</a> <span class="s">(졸업)</span><br><a class="l">A대학교</a> <span class="s">(재학)</span></td></tr><tr><td class="lb">MBTI</td><td><a class="l">ISTP</a></td></tr><tr><td class="lb">인스타그램</td><td>@dhun.o.o</td></tr></table>
+<table class="nw-prof"><tr><th class="hd" colspan="2">김도훈<small>Kim Do-hoon</small></th></tr><tr><td class="lb">생일</td><td>1월 30일</td></tr><tr><td class="lb">국적</td><td><img class="flag" src="d/nw_flag.png" alt=""><a class="l">대한민국</a></td></tr><tr><td class="lb">신체</td><td>180cm | 58kg | <a class="l">B형</a></td></tr><tr><td class="lb">가족</td><td>부모님, 형</td></tr><tr><td class="lb">학력</td><td><a class="l">a고등학교</a> <span class="s">(졸업)</span><br><a class="l">A대학교</a> <span class="s">(재학)</span></td></tr><tr><td class="lb">MBTI</td><td><a class="l">ISTP</a></td></tr><tr><td class="lb">인스타그램</td><td>@dhun.o.o</td></tr></table>
 <div class="nw-toc"><div class="th">목차<svg width="14" height="9" viewBox="0 0 14 9"><path d="M1.2 1.5 7 7.3l5.8-5.8" fill="none" stroke="#444" stroke-width="1.8" stroke-linecap="round"/></svg></div><div class="it"><b>1.</b> 개요</div><div class="it"><b>2.</b> 특징</div><div class="it"><b>3.</b> <span class="go" data-go="docJ">신정환</span></div><div class="it sub"><b>3.1.</b> 출가 선언</div><div class="it"><b>4.</b> 여담</div></div>
 <div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>1.</b> 개요</div><div class="ed">[편집]</div></div><div class="nw-p">대한민국의 대학생. <a class="l">a고등학교</a>를 졸업했으며, 현재 <a class="l">A대학교</a> 2학년에 재학 중이다. 서울 본가에서 지내다 최근 연인과 함께 살기 시작했다.</div><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>2.</b> 특징</div><div class="ed">[편집]</div></div><ul class="nw-ul"><li>MBTI는 <a class="l">ISTP</a>.</li><li>화가 나면 말이 세게 나가는 편이지만, 오해가 풀리면 먼저 장문으로 마음을 전하기도 한다.</li></ul><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.</b> 신정환</div><div class="ed">[편집]</div></div><div class="nw-p">a고등학교 선배이자 연인. 같은 동네, 같은 고등학교 출신으로 학창 시절 늘 붙어 다녀 <b>a고 쌍둥이</b>로 불렸다. 2024년 10월 23일부터 교제 중이며, 2025년 10월 한 차례 헤어졌다가 같은 해 12월 27일 재결합했다.</div><div class="nw-h s2"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>3.1.</b> 출가 선언</div><div class="ed">[편집]</div></div><div class="nw-p">연인의 동거 제안을 처음에는 거절했다. 그러나 자신의 생일에 연인이 다시 진지하게 제안하며 준비한 생일 이벤트에 크게 감동했고, 며칠 뒤 어머니에게 출가를 선언했다. 이후 어머니가 연인을 집으로 초대했고, 동거를 허락받았다.</div><div class="nw-h"><svg class="cv" viewBox="0 0 13 8"><path d="M1 1.2l5.5 5.5L12 1.2" fill="none" stroke="#444" stroke-width="1.9" stroke-linecap="round"/></svg><div class="t"><b>4.</b> 여담</div><div class="ed">[편집]</div></div><ul class="nw-ul"><li>인스타그램 아이디는 @dhun.o.o이다.</li><li>교제 100일이 본인의 생일과 같은 날이다.</li></ul>
 </div></div>
-  <img class="sb" src="b/sbar_clear.png" alt="">
+  <img class="sb" src="d/sbar_clear.png" alt="">
   <div class="nw-side"><div><span data-nw="toc"><svg width="18" height="14" viewBox="0 0 18 14"><g fill="#8a8f95"><circle cx="1.6" cy="2" r="1.5"/><circle cx="1.6" cy="7" r="1.5"/><circle cx="1.6" cy="12" r="1.5"/><rect x="5" y="1" width="13" height="2" rx="1"/><rect x="5" y="6" width="13" height="2" rx="1"/><rect x="5" y="11" width="13" height="2" rx="1"/></g></svg></span></div><div><span data-nw="up"><svg width="14" height="17" viewBox="0 0 14 17"><path d="M7 16V2M1.5 7.5 7 2l5.5 5.5" fill="none" stroke="#8a8f95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span data-nw="down"><svg width="14" height="17" viewBox="0 0 14 17"><path d="M7 1v14M1.5 9.5 7 15l5.5-5.5" fill="none" stroke="#8a8f95" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div></div>
   <div class="nw-fade"></div><div class="nw-pill">namu.wiki</div>
   <div class="nw-homehot" data-close></div>
@@ -649,20 +737,20 @@ img{-webkit-user-drag:none;user-drag:none}
   <!-- ===== 카카오맵 ===== -->
   <div class="screen appscr" id="kmap">
     <div class="km-map" id="kmMap">
-      <img class="lv on" src="a/km_l1.jpg" alt=""><img class="lv" src="a/km_l2.jpg" alt=""><img class="lv" src="a/km_l3.jpg" alt=""><img class="lv" src="a/km_l4.jpg" alt="">
-      <img class="km-pin" id="kmPin" src="a/km_pin.png" alt="">
+      <img class="lv on" src="c/km_l1.jpg" alt=""><img class="lv" src="c/km_l2.jpg" alt=""><img class="lv" src="c/km_l3.jpg" alt=""><img class="lv" src="d/km_l4.jpg" alt="">
+      <img class="km-pin" id="kmPin" src="d/km_pin.png" alt="">
     </div>
     <div class="km-touch" id="kmTouch"><div class="km-heart" id="kmHeart"></div></div>
-    <img class="km-ui" src="b/km_top.png" style="left:0;top:50px;width:375px;height:100px" alt="">
-    <img class="km-ui km-q" src="a/km_q1.png" style="left:58.33px;top:65px;width:155px;height:26.67px" alt="">
-    <img class="km-ui km-q" src="b/km_q2.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
-    <img class="km-ui km-q" src="b/km_q3.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
-    <img class="km-ui" src="b/km_rbtn.png" style="left:315px;top:156.67px;width:48.33px;height:96.67px" alt="">
-    <img class="km-ui km-move" src="b/km_weather.png" style="left:10px;top:625px;width:53.33px;height:79px" alt="">
-    <img class="km-ui km-move" src="a/km_locate.png" style="left:315px;top:657.33px;width:48.33px;height:46.67px" alt="">
-    <img class="km-ui" src="b/km_tab.png" style="left:0;top:716.33px;width:375px;height:95.67px" alt="">
-    <div class="km-sheet"><img src="b/km_sheet.jpg" alt=""><div class="x" id="kmX"></div></div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="km-ui" src="d/km_top.png" style="left:0;top:50px;width:375px;height:100px" alt="">
+    <img class="km-ui km-q" src="d/km_q1.png" style="left:58.33px;top:65px;width:155px;height:26.67px" alt="">
+    <img class="km-ui km-q" src="d/km_q2.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
+    <img class="km-ui km-q" src="d/km_q3.png" style="left:58.33px;top:65px;width:155px;height:26.67px;opacity:0" alt="">
+    <img class="km-ui" src="d/km_rbtn.png" style="left:315px;top:156.67px;width:48.33px;height:96.67px" alt="">
+    <img class="km-ui km-move" src="d/km_weather.png" style="left:10px;top:625px;width:53.33px;height:79px" alt="">
+    <img class="km-ui km-move" src="d/km_locate.png" style="left:315px;top:657.33px;width:48.33px;height:46.67px" alt="">
+    <img class="km-ui" src="d/km_tab.png" style="left:0;top:716.33px;width:375px;height:95.67px" alt="">
+    <div class="km-sheet"><img src="d/km_sheet.jpg" alt=""><div class="x" id="kmX"></div></div>
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="km-homehot" data-close></div>
   </div>
 
@@ -727,7 +815,7 @@ img{-webkit-user-drag:none;user-drag:none}
     </div>
     <img class="am-tab" src="a/am_tab.png" style="left:21px;top:729.3px;width:262.3px;height:61.3px" alt="">
     <img class="am-tab" src="a/am_search.png" style="left:292.3px;top:729px;width:61.3px;height:61.3px" alt="">
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="am-homehot" data-close></div>
   </div>
 
@@ -737,101 +825,131 @@ img{-webkit-user-drag:none;user-drag:none}
     <div class="mo-page">
       <div class="mo-scroll" id="moScroll">
         <div class="mo-big">모든 iCloud</div>
-        <div class="mo-sub"><img src="b/mo_cloud.png" alt="">iCloud 저장 공간이 가득 참 · <b>더 많은 공간 이용</b></div>
+        <div class="mo-sub"><img src="d/mo_cloud.png" alt="">iCloud 저장 공간이 가득 참 · <b>더 많은 공간 이용</b></div>
         <div class="mo-list" id="moList"></div>
         <div class="mo-pad"></div>
       </div>
       <div class="mo-top"></div>
-      <div class="mo-small"><div class="a">모든 iCloud</div><div class="b"><img src="b/mo_cloud.png" alt="">저장 공간이 가득 참</div></div>
+      <div class="mo-small"><div class="a">모든 iCloud</div><div class="b"><img src="d/mo_cloud.png" alt="">저장 공간이 가득 참</div></div>
       <div class="mo-bot"></div>
-      <img class="mo-btn" src="b/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px" alt=""><div data-close style="position:absolute;left:14px;top:48px;width:48px;height:48px;border-radius:50%;z-index:6;cursor:pointer"></div>
-      <img class="mo-btn" src="b/mo_more.png" style="left:315px;top:50.3px;width:43.7px;height:43.7px" alt="">
-      <img class="mo-btn" src="b/mo_search.png" style="left:28.3px;top:736.3px;width:258.3px;height:47px" alt="">
-      <img class="mo-btn" src="b/mo_compose.png" style="left:299px;top:735.7px;width:48px;height:48px" alt="">
+      <img class="mo-btn" src="d/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px" alt=""><div data-close style="position:absolute;left:14px;top:48px;width:48px;height:48px;border-radius:50%;z-index:6;cursor:pointer"></div>
+      <img class="mo-btn" src="d/mo_more.png" style="left:315px;top:50.3px;width:43.7px;height:43.7px" alt="">
+      <img class="mo-btn" src="d/mo_search.png" style="left:28.3px;top:736.3px;width:258.3px;height:47px" alt="">
+      <img class="mo-btn" src="d/mo_compose.png" style="left:299px;top:735.7px;width:48px;height:48px" alt="">
     </div>
     <div class="mo-note" id="moNote">
       <div class="mo-scroll"><div class="date" id="moDate"></div><div class="mtitle" id="moTitle"></div><div class="body" id="moBody"></div><div class="mo-pad"></div></div>
       <div class="nbot"></div>
-      <img class="mo-btn" id="moBack" src="b/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px;cursor:pointer" alt="">
-      <img class="mo-btn" src="b/mo_share.png" style="left:258.7px;top:50.3px;width:100px;height:43.7px" alt="">
-      <img class="mo-btn" src="b/mo_tools.png" style="left:28.3px;top:736.3px;width:165px;height:47px" alt="">
-      <img class="mo-btn" src="b/mo_compose.png" style="left:299px;top:735.7px;width:48px;height:48px" alt="">
+      <img class="mo-btn" id="moBack" src="d/mo_back.png" style="left:16.3px;top:50.3px;width:43.7px;height:43.7px;cursor:pointer" alt="">
+      <img class="mo-btn" src="d/mo_share.png" style="left:258.7px;top:50.3px;width:100px;height:43.7px" alt="">
+      <img class="mo-btn" src="d/mo_tools.png" style="left:28.3px;top:736.3px;width:165px;height:47px" alt="">
+      <img class="mo-btn" src="d/mo_compose.png" style="left:299px;top:735.7px;width:48px;height:48px" alt="">
     </div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="mo-homehot" data-close></div>
   </div>
 
 
   <!-- ===== 사진 ===== -->
   <div class="screen appscr" id="photos">
-    <div class="ph-scroll" id="phScroll"><img src="b/ph_grid.jpg" alt=""><div class="pad"></div></div>
+    <div class="ph-scroll" id="phScroll"><img src="d/ph_grid.jpg" alt=""><div class="pad"></div></div>
     <div class="ph-top"></div>
     <div class="ph-title">보관함</div>
     <div class="ph-sub">79개의 항목</div>
-    <img class="ph-btn" src="b/ph_filter.png" style="left:241.3px;top:50.3px;width:43.7px;height:43.7px" alt="">
-    <img class="ph-btn" src="b/ph_sel2.png" style="left:297.3px;top:50.3px;width:61.3px;height:43.7px" alt="">
-    <img class="ph-tabbar" src="b/ph_tabbar.png" alt="">
-    <img class="sb" src="b/sbar_white.png" alt="">
+    <img class="ph-btn" src="d/ph_filter.png" style="left:241.3px;top:50.3px;width:43.7px;height:43.7px" alt="">
+    <img class="ph-btn" src="d/ph_sel2.png" style="left:297.3px;top:50.3px;width:61.3px;height:43.7px" alt="">
+    <img class="ph-tabbar" src="d/ph_tabbar.png" alt="">
+    <img class="sb" src="d/sbar_white.png" alt="">
     <div class="ph-homehot" data-close></div>
   </div>
 
 
   <!-- ===== 인스타그램 (홈에는 아이콘 없음) ===== -->
   <div class="screen appscr" id="insta">
-    <div class="ig-scroll" id="igScroll"><div style="position:relative"><img src="a/ig_head.jpg" style="height:361px" alt=""><div class="ig-hot" id="igMenu" style="left:318px;top:52px;width:46px;height:46px"></div></div><img src="a/ig_grid.jpg" style="height:3499px" alt=""><div style="height:110px"></div></div>
-    <img class="ig-nav" id="igNavImg" src="a/ig_nav.png" alt="">
+    <div class="ig-scroll" id="igScroll"><div style="position:relative"><img src="b/ig_head.jpg" style="height:361px" alt=""><div class="ig-hot" id="igMenu" style="left:318px;top:52px;width:46px;height:46px"></div></div><div style="position:relative"><img src="b/ig_grid.jpg" style="height:3499px;display:block" alt=""><div class="ig-hot" data-post="0" style="left:0;top:0;width:124px;height:166px"></div><div class="ig-hot" data-post="1" style="left:125.5px;top:0;width:124px;height:166px"></div><div class="ig-hot" data-post="2" style="left:251px;top:0;width:124px;height:166px"></div><div class="ig-hot" data-post="3" style="left:0;top:167.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="4" style="left:125.5px;top:167.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="5" style="left:251px;top:334px;width:124px;height:165px"></div><div class="ig-hot" data-post="6" style="left:125.5px;top:500.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="7" style="left:125.5px;top:833.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="8" style="left:251px;top:833.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="9" style="left:125.5px;top:1000px;width:124px;height:165px"></div><div class="ig-hot" data-post="10" style="left:0;top:1000px;width:124px;height:165px"></div><div class="ig-hot" data-post="11" style="left:251px;top:1000px;width:124px;height:165px"></div><div class="ig-hot" data-post="12" style="left:251px;top:1333px;width:124px;height:165px"></div><div class="ig-hot" data-post="13" style="left:251px;top:1500px;width:124px;height:165px"></div><div class="ig-hot" data-post="14" style="left:0;top:1666.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="15" style="left:125.5px;top:2000px;width:124px;height:165px"></div><div class="ig-hot" data-post="16" style="left:251px;top:2000px;width:124px;height:165px"></div><div class="ig-hot" data-post="17" style="left:0;top:2500px;width:124px;height:165px"></div><div class="ig-hot" data-post="18" style="left:251px;top:2500px;width:124px;height:165px"></div><div class="ig-hot" data-post="19" style="left:125.5px;top:3333.5px;width:124px;height:165px"></div><div class="ig-hot" data-post="20" style="left:0;top:3333.5px;width:124px;height:165px"></div></div><div style="height:110px"></div></div>
+    <img class="ig-nav" id="igNavImg" src="b/ig_nav.png" alt="">
     <div class="ig-hot" id="igNavDm" style="left:166px;top:736px;width:46px;height:46px;z-index:4"></div>
-    <div class="ig-view" id="igShin"><div class="ig-scroll2"><div style="position:relative"><img src="a/ig_head_shin.jpg" style="height:361px" alt=""><div class="ig-hot" data-sheet style="left:110px;top:52px;width:155px;height:46px"></div></div><img src="a/ig_grid_shin.jpg" style="height:499px" alt=""><div style="height:120px"></div></div>
-      <img class="ig-nav" src="a/ig_nav.png" alt="">
+    <div class="ig-view" id="igShin"><div class="ig-scroll2"><div style="position:relative"><img src="b/ig_head_shin.jpg" style="height:361px" alt=""><div class="ig-hot" data-sheet style="left:110px;top:52px;width:155px;height:46px"></div></div><img src="b/ig_grid_shin.jpg" style="height:499px" alt=""><div style="height:120px"></div></div>
+      <img class="ig-nav" src="b/ig_nav.png" alt="">
       <div class="ig-hot" data-inbox2 style="left:166px;top:736px;width:46px;height:46px;z-index:4"></div></div>
-    <div class="ig-view" id="igInbox2"><div class="ig-scroll2"><div style="position:relative"><img src="a/ig_inbox_shin_full.jpg" style="height:1144.0px" alt=""><div class="ig-hot" data-sheet style="left:125px;top:56px;width:125px;height:42px"></div><div class="ig-hot ig-row" data-room="igRoomLemon" style="left:0;right:0;top:496px;height:72px"></div><div class="ig-hot ig-row" data-room="igRoomHaha" style="left:0;right:0;top:568px;height:72px"></div></div>
+    <div class="ig-view" id="igInbox2"><div class="ig-scroll2"><div style="position:relative"><img src="b/ig_inbox_shin_full.jpg" style="height:1144.0px" alt=""><div class="ig-hot" data-sheet style="left:125px;top:56px;width:125px;height:42px"></div><div class="ig-hot ig-row" data-room="igRoomLemon" style="left:0;right:0;top:496px;height:72px"></div><div class="ig-hot ig-row" data-room="igRoomHaha" style="left:0;right:0;top:568px;height:72px"></div></div>
       <div style="height:120px"></div></div>
-      <img src="a/ig_nav_dm.png" style="position:absolute;left:26.7px;top:732px;width:320.7px;height:58px;z-index:3;filter:drop-shadow(0 3px 12px rgba(0,0,0,.12))" alt="">
+      <img src="b/ig_nav_dm.png" style="position:absolute;left:26.7px;top:732px;width:320.7px;height:58px;z-index:3;filter:drop-shadow(0 3px 12px rgba(0,0,0,.12))" alt="">
       <div class="ig-hot" data-shinprof style="left:30px;top:736px;width:56px;height:50px;z-index:4"></div>
       <div class="ig-hot" data-shinprof style="left:288px;top:736px;width:56px;height:50px;z-index:4"></div></div>
-    <div class="ig-view" id="igInbox"><img src="a/ig_inbox.png" style="position:absolute;left:0;top:0;width:375px;height:496.7px" alt="">
+    <div class="ig-view" id="igInbox"><img src="b/ig_inbox.png" style="position:absolute;left:0;top:0;width:375px;height:496.7px" alt="">
       <div class="ig-hot" data-sheet style="left:120px;top:56px;width:135px;height:42px"></div>
-      <img src="a/ig_nav_dm.png" style="position:absolute;left:26.7px;top:732px;width:320.7px;height:58px;z-index:3;filter:drop-shadow(0 3px 12px rgba(0,0,0,.12))" alt="">
+      <img src="b/ig_nav_dm.png" style="position:absolute;left:26.7px;top:732px;width:320.7px;height:58px;z-index:3;filter:drop-shadow(0 3px 12px rgba(0,0,0,.12))" alt="">
       <div class="ig-hot" id="igInHome" style="left:30px;top:736px;width:56px;height:50px;z-index:4"></div>
       <div class="ig-hot" id="igInProf" style="left:288px;top:736px;width:56px;height:50px;z-index:4"></div></div>
-    <div class="ig-set ig-room" id="igRoomLemon"><img src="a/ig_dm_lemon.jpg" alt=""><div class="ig-hot" data-roomback style="left:14px;top:54px;width:48px;height:48px;border-radius:50%"></div></div>
-    <div class="ig-set ig-room" id="igRoomHaha"><img src="a/ig_dm_hhaha.jpg" alt=""><div class="ig-hot" data-roomback style="left:14px;top:54px;width:48px;height:48px;border-radius:50%"></div></div>
+    <div class="ig-set ig-room" id="igRoomLemon"><img src="b/ig_dm_lemon.jpg" alt=""><div class="ig-hot" data-roomback style="left:14px;top:54px;width:48px;height:48px;border-radius:50%"></div></div>
+    <div class="ig-set ig-room" id="igRoomHaha"><img src="b/ig_dm_hhaha.jpg" alt=""><div class="ig-hot" data-roomback style="left:14px;top:54px;width:48px;height:48px;border-radius:50%"></div></div>
     <div class="ig-dim" id="igDim"></div>
     <div class="ig-sheet" id="igSheet"><div class="grab"></div>
       <div class="card">
-        <div class="row" data-acc="yux"><img class="a" src="a/ig_av_default.png" alt=""><div class="t"><b>yuxhome</b><span class="sub"><i></i>채팅 2개</span></div><span class="ck"></span></div>
+        <div class="row" data-acc="yux"><img class="a" src="b/ig_av_default.png" alt=""><div class="t"><b>yuxhome</b><span class="sub"><i></i>채팅 2개</span></div><span class="ck"></span></div>
         <div class="row" data-acc="shin"><span class="a e"></span><div class="t"><b>shin.y</b><span class="sub"><i></i>채팅 2개 외 9개</span></div><span class="ck"></span></div>
         <div class="row add"><span class="a p"><svg width="17" height="17" viewBox="0 0 17 17"><path d="M8.5 1.5v14M1.5 8.5h14" stroke="#111" stroke-width="1.7" stroke-linecap="round"/></svg></span><div class="t"><b style="font-weight:400">Instagram 계정 추가</b></div></div>
       </div>
       <div class="btn">계정 센터로 이동</div>
     </div>
-    <div class="ig-set" id="igSet"><img src="a/ig_settings.jpg" alt="">
+    <div class="ig-set ig-post" id="igPost">
+      <img class="igp-head" src="b/igp_head.png" alt="">
+      <div class="igp-sc" id="igpSc"><div class="igp-sp" id="igpSp"></div>
+      <div class="igp-ph"><div class="igp-track"></div><img class="igp-cnt" alt=""></div>
+      <img class="igp-bot" alt="">
+      <div class="igp-dots"><i class="on"></i><i></i><i></i><i></i></div>
+      <div class="igp-cnum" id="igpCnum"></div><img class="igp-plane" id="igpPlane" src="b/igc_plane.png" alt="">
+      <div class="ig-hot" id="igpCmtBtn"></div><div class="ig-hot" id="igpCmtPrev"></div><div class="ig-hot" id="igpMore"></div></div>
+      <div class="ig-hot" id="igPostBack" style="left:14px;top:48px;width:48px;height:48px;border-radius:50%"></div>
+      <div class="igc" id="igc">
+        <div class="igc-dim" id="igcDim"></div>
+        <div class="igc-sheet" id="igcSheet">
+          <div class="igc-grab" id="igcGrab"><i></i><b>댓글</b></div>
+          <div class="igc-share"><img src="b/igc_plane.png" alt=""></div>
+          <div class="igc-list" id="igcList"></div>
+          <div class="igc-rep" id="igcRep"><span></span><i id="igcRepX">✕</i></div>
+          <div class="igc-bar" id="igcBar"><img src="b/igc_bar.png" alt="">
+            <div class="igc-emo" id="igcEmo"><span>❤️</span><span>🙌</span><span>🔥</span><span>👏</span><span>😢</span><span>😍</span><span>😮</span><span>😂</span></div>
+            <div class="igc-me" id="igcMe"></div>
+            <input class="igc-in" id="igcIn" type="text" maxlength="200" placeholder="회원님의 생각을 남겨보세요." enterkeyhint="send" autocomplete="off">
+            <div class="igc-send" id="igcSend"><svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 13.5V2.8M3.2 7.4 8 2.6l4.8 4.8" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          </div>
+        </div>
+        <div class="igc-modal" id="igcNick"><div class="box"><b>닉네임 설정</b><p>댓글에 표시될 이름을 정해주세요.</p><input id="igcNickIn" type="text" maxlength="20" autocomplete="off" placeholder="닉네임"><div class="err" id="igcNickErr"></div><div class="bt"><span id="igcNickNo">취소</span><span id="igcNickOk">확인</span></div></div></div>
+        <div class="igc-act" id="igcAct"><div class="g"><div class="del" id="igcDel">삭제</div></div><div class="g"><div id="igcActNo">취소</div></div></div>
+        <div class="igc-toast" id="igcToast"></div>
+      </div>
+      <div class="ig-link" id="igLink"><div class="box"><b>X(트위터)로 이동할까요?</b><p>이 게시물과 이어지는 이야기가 있어요.</p><div class="bt"><span id="igLinkNo">취소</span><span id="igLinkOk">이동</span></div></div></div>
+      <img class="sb" src="d/sbar_clear.png" style="position:absolute;left:0;top:0;width:375px;height:46.67px;z-index:3;pointer-events:none" alt="">
+    </div>
+    <div class="ig-set" id="igSet"><img src="b/ig_settings.jpg" alt="">
       <div class="ig-hot" id="igSetBack" style="left:16px;top:50px;width:46px;height:46px;border-radius:50%"></div>
       <div class="ig-hot ig-row" id="igArchive" style="left:0;right:0;top:376px;height:46px"></div>
     </div>
     <div class="ig-set ig-story" id="igStory">
       <div class="st-body">
-        <img class="st-start" src="b/st_start.jpg" alt="">
-        <div class="st-fb" id="stFb"><img class="fb" src="b/st_fb00.jpg" alt=""><img class="fb" src="b/st_fb01.jpg" alt=""><img class="fb" src="b/st_fb02.jpg" alt=""><img class="fb" src="b/st_fb03.jpg" alt=""><img class="fb" src="b/st_fb04.jpg" alt=""><img class="fb" src="b/st_fb05.jpg" alt=""><img class="fb" src="b/st_fb06.jpg" alt=""><img class="fb" src="b/st_fb07.jpg" alt=""><img class="fb" src="b/st_fb08.jpg" alt=""><img class="fb" src="b/st_fb09.jpg" alt=""><img class="fb" src="b/st_fb10.jpg" alt=""><img class="fb" src="b/st_fb11.jpg" alt=""><img class="fb" src="b/st_fb12.jpg" alt=""><img class="fb" src="b/st_fb13.jpg" alt=""><img class="fb" src="b/st_fb14.jpg" alt=""><img class="fb" src="b/st_fb15.jpg" alt=""><img class="fb" src="b/st_fb16.jpg" alt=""><img class="fb" src="b/st_fb17.jpg" alt=""></div>
-        <div class="st-scroll" id="stScroll"><img src="b/st_strip.jpg" alt=""><div style="height:20px"></div></div>
+        <img class="st-start" src="d/st_start.jpg" alt="">
+        <div class="st-fb" id="stFb"><img class="fb" src="d/st_fb00.jpg" alt=""><img class="fb" src="d/st_fb01.jpg" alt=""><img class="fb" src="d/st_fb02.jpg" alt=""><img class="fb" src="d/st_fb03.jpg" alt=""><img class="fb" src="d/st_fb04.jpg" alt=""><img class="fb" src="d/st_fb05.jpg" alt=""><img class="fb" src="d/st_fb06.jpg" alt=""><img class="fb" src="d/st_fb07.jpg" alt=""><img class="fb" src="d/st_fb08.jpg" alt=""><img class="fb" src="d/st_fb09.jpg" alt=""><img class="fb" src="d/st_fb10.jpg" alt=""><img class="fb" src="d/st_fb11.jpg" alt=""><img class="fb" src="d/st_fb12.jpg" alt=""><img class="fb" src="d/st_fb13.jpg" alt=""><img class="fb" src="d/st_fb14.jpg" alt=""><img class="fb" src="d/st_fb15.jpg" alt=""><img class="fb" src="d/st_fb16.jpg" alt=""><img class="fb" src="d/st_fb17.jpg" alt=""></div>
+        <div class="st-scroll" id="stScroll"><img src="d/st_strip.jpg" alt=""><div style="height:20px"></div></div>
       </div>
-      <img class="st-head" src="b/st_head.png" alt="">
+      <img class="st-head" src="d/st_head.png" alt="">
       <div class="ig-hot" id="stBack" style="left:16px;top:50px;width:46px;height:46px;border-radius:50%;z-index:4"></div>
       <div class="ig-hot" id="stTop" style="left:70px;right:70px;top:0;height:100px;z-index:4"></div>
     </div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="homehot2" data-close></div>
   </div>
-  <div class="ig-banner" id="igBanner"><img src="a/ig_banner.png" alt=""></div>
+  <div class="ig-banner" id="igBanner"><img src="b/ig_banner.png" alt=""></div>
 
 
   <!-- ===== YouTube ===== -->
   <div class="screen appscr" id="youtube">
-    <div class="yt-scroll" id="ytScroll"><img src="b/yt_feed.jpg" alt=""></div>
+    <div class="yt-scroll" id="ytScroll"><img src="d/yt_feed.jpg" alt=""></div>
     <div class="sbbg"></div>
-    <img class="yt-head" id="ytHead" src="b/yt_head.png" alt="">
-    <img class="yt-tab" src="b/yt_tab.png" alt="">
-    <img class="sb" src="b/sbar_white.png" alt="">
+    <img class="yt-head" id="ytHead" src="d/yt_head.png" alt="">
+    <img class="yt-tab" src="d/yt_tab.png" alt="">
+    <img class="sb" src="d/sbar_white.png" alt="">
     <div class="yt-homehot" data-close></div>
   </div>
 
@@ -854,7 +972,7 @@ img{-webkit-user-drag:none;user-drag:none}
       <svg width="22" height="20" viewBox="0 0 22 20"><rect x="1" y="1.5" width="20" height="17.5" rx="3" fill="none" stroke="#111" stroke-width="1.6"/><path d="M1 6h20" stroke="#111" stroke-width="1.6"/><path d="M1 1.5h20v4.5H1z" fill="#111"/><g fill="#111"><circle cx="5" cy="9.5" r=".9"/><circle cx="8.7" cy="9.5" r=".9"/><circle cx="12.4" cy="9.5" r=".9"/><circle cx="16.1" cy="9.5" r=".9"/><circle cx="5" cy="13" r=".9"/><circle cx="8.7" cy="13" r=".9"/><circle cx="12.4" cy="13" r=".9"/><circle cx="16.1" cy="13" r=".9"/><circle cx="5" cy="16.2" r=".9"/><circle cx="8.7" cy="16.2" r=".9"/><circle cx="12.4" cy="16.2" r=".9"/></g></svg>
       <svg width="23" height="18" viewBox="0 0 23 18"><path d="M1 10h6l1.6 3h5.8L16 10h6M1 10l3.4-8.2C4.7 1.3 5.2 1 5.8 1h11.4c.6 0 1.1.3 1.4.8L22 10v5.5c0 .8-.7 1.5-1.5 1.5h-18C1.7 17 1 16.3 1 15.5Z" fill="none" stroke="#111" stroke-width="1.6" stroke-linejoin="round"/></svg>
     </div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="cal-homehot" data-close></div>
   </div>
 
@@ -864,17 +982,17 @@ img{-webkit-user-drag:none;user-drag:none}
     <img class="cam-v" src="a/cam_poster.jpg" alt="">
     <video class="cam-v" id="camVid" muted loop playsinline preload="auto" poster="a/cam_poster.jpg"></video>
     <div class="sbmask"></div>
-    <img class="sb" src="b/sbar_white.png" alt="">
+    <img class="sb" src="d/sbar_white.png" alt="">
     <div class="cam-homehot" data-close></div>
   </div>
 
   <!-- ===== 전화 (최근 통화) ===== -->
   <div class="screen appscr" id="dial">
-    <div class="dl-list" id="dlList"><img src="b/ph_list.png" alt=""></div>
-    <img class="dl-top" src="b/ph_top.png" alt="">
-    <img class="dl-bot" src="b/ph_bot.png" alt="">
+    <div class="dl-list" id="dlList"><img src="d/ph_list.png" alt=""></div>
+    <img class="dl-top" src="d/ph_top.png" alt="">
+    <img class="dl-bot" src="d/ph_bot.png" alt="">
     <div class="dl-tab" data-close></div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="dl-homehot" data-close></div>
   </div>
 
@@ -885,13 +1003,13 @@ img{-webkit-user-drag:none;user-drag:none}
     <img class="gp-bot" src="a/gpt_bot.png" alt="">
     <img class="gp-head" src="a/gpt_head.png" alt="">
     <div class="gp-down" id="gpDown"><svg width="15" height="17" viewBox="0 0 15 17"><path d="M7.5 1.5v13.2M1.8 9l5.7 5.8L13.2 9" fill="none" stroke="#0d0d0d" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-    <img class="sb" src="b/sbar_clear.png" alt="">
+    <img class="sb" src="d/sbar_clear.png" alt="">
     <div class="gp-homehot" data-close></div>
   </div>
 
   <!-- 앱 화면 (아직 임시) -->
   <div class="screen appscr" id="appwin">
-    <img class="sb" src="b/sbar_dark.png" alt="">
+    <img class="sb" src="d/sbar_dark.png" alt="">
     <div class="ph"><b id="apname"></b><p>곧 만들어질 화면이에요</p></div>
     <div class="homebar"></div>
     <div class="grab" id="grab"></div>
@@ -904,7 +1022,7 @@ img{-webkit-user-drag:none;user-drag:none}
 const USE_SND=!(/Android/i.test(navigator.userAgent)&&navigator.vibrate);
 function blobURL(u){ if(!u.startsWith('data:')) return u; const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return URL.createObjectURL(new Blob([arr],{type:h.slice(5).split(';')[0]})); }
 // 웹오디오: 바로바로 소리 나고(지연 없음), 연달아 와도 하나도 안 빠짐
-const VIB_SRC={dm:"b/vib_dm.mp3", call:"b/vib_call.mp3"};
+const VIB_SRC={dm:"d/vib_dm.mp3", call:"d/vib_call.mp3"};
 let actx=null; const vbuf={}; let ringSrc=null, ringVib=null, ringing=false;
 function toAB(u){ const d=u.split(',')[1], bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return arr.buffer; }
 function loadBuf(k){ const u=VIB_SRC[k]; const p=u.startsWith('data:')?Promise.resolve(toAB(u)):fetch(u).then(r=>r.arrayBuffer());
@@ -976,7 +1094,7 @@ const C=[56.8,143.6,231.3,318.2], R=[194,289,384], D=755;
 const APPS=[
  ['kakao','카카오톡',C[0],R[0]],['kmap','카카오맵',C[1],R[0]],['camera','카메라',C[2],R[0]],['photos','사진',C[3],R[0]],
  ['safari','Safari',C[2],R[1]],['youtube','YouTube',C[3],R[1]],
- ['mybox','MYBOX',C[0],R[2]],['chatgpt','ChatGPT',C[1],R[2]],['memo','메모',C[3],R[2]],
+ ['mybox','MYBOX',C[0],R[2]],['insta','Instagram',C[0],R[2]+95],['chatgpt','ChatGPT',C[1],R[2]],['memo','메모',C[3],R[2]],
  ['dial','전화',C[0],D],['messages','메시지',C[1],D],['calendar','캘린더',C[2],D],['music','음악',C[3],D]
 ];
 APPS.forEach(([id,name,x,y])=>{
@@ -997,6 +1115,7 @@ function openApp(id,name,x,y){
   el.style.transformOrigin=x+'px '+y+'px';
   if(id==='photos'){ const sc=document.getElementById('phScroll'); sc.scrollTop=sc.scrollHeight; requestAnimationFrame(()=>sc.scrollTop=sc.scrollHeight); }
   if(id==='camera'&&window.camOpen) camOpen();
+  if(id==='insta'){ const s=document.getElementById('igScroll'); s.scrollTop=0; }
   if(id==='chatgpt'){ const g=document.getElementById('gpScroll'); g.scrollTop=g.scrollHeight; requestAnimationFrame(()=>{ g.scrollTop=g.scrollHeight; }); }
   el.classList.add('open'); cur=el;
 }
@@ -1082,10 +1201,10 @@ const CHAT=[
  ['d','ㅋㄱㅋㄱㄲㅋㅋ','12:08'],
  ['d','이따봐ㅏㅏ','12:08']
 ];
-const IMGS={'ph_game.jpg':'b/ph_game.jpg','ph_rice.jpg':'b/ph_rice.jpg','ph_selfie.jpg':'b/ph_selfie.jpg',
- 'jh_calc':{src:'a/jh_calc.jpg',w:209,h:453,share:true},
- 'jh_env':{src:'a/jh_env.png',w:273.3,h:293.7,share:false,css:'margin-top:-14.7px;margin-right:-18px;border-radius:0;object-fit:fill'},
- 'jh_recv':{src:'a/jh_recv.png',w:255.3,h:151.3,share:false,css:'border-radius:0;object-fit:fill'}};
+const IMGS={'ph_game.jpg':'d/ph_game.jpg','ph_rice.jpg':'d/ph_rice.jpg','ph_selfie.jpg':'d/ph_selfie.jpg',
+ 'jh_calc':{src:'c/jh_calc.jpg',w:209,h:453,share:true},
+ 'jh_env':{src:'c/jh_env.png',w:273.3,h:293.7,share:false,css:'margin-top:-14.7px;margin-right:-18px;border-radius:0;object-fit:fill'},
+ 'jh_recv':{src:'c/jh_recv.png',w:255.3,h:151.3,share:false,css:'border-radius:0;object-fit:fill'}};
 const SHARE='<div class="share"><svg width="16" height="18" viewBox="0 0 16 18"><path d="M8 11.5V1.6M4.4 5 8 1.4 11.6 5" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M1.5 9.5v5.3c0 .9.7 1.6 1.6 1.6h9.8c.9 0 1.6-.7 1.6-1.6V9.5" fill="none" stroke="#222" stroke-width="1.6" stroke-linecap="round"/></svg></div>';
 const DATEHTML=`<div class="kc-date"><span>
           <svg width="13" height="13" viewBox="0 0 13 13"><rect x=".8" y="1.8" width="11.4" height="10.4" rx="1.6" fill="none" stroke="#fff" stroke-width="1.2"/><path d="M.8 4.6h11.4" stroke="#fff" stroke-width="1.2"/><path d="M3.6.6v2.2M9.4.6v2.2" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/><g fill="#fff"><circle cx="4" cy="7" r=".7"/><circle cx="6.5" cy="7" r=".7"/><circle cx="9" cy="7" r=".7"/><circle cx="4" cy="9.6" r=".7"/><circle cx="6.5" cy="9.6" r=".7"/><circle cx="9" cy="9.6" r=".7"/></g></svg>
@@ -1289,7 +1408,7 @@ namu.querySelectorAll('[data-nw]').forEach(el=>el.addEventListener('click',()=>{
 (function(){
   // 음악 파일을 assets/music 폴더에 넣고 아래 file 칸에 이름을 적으면 진짜 소리가 나요
   const SONGS=[
-    {t:'장미 유행가',a:'RIO',th:'a/am_th_rio.png',file:'b/rose.mp3'},
+    {t:'장미 유행가',a:'RIO',th:'a/am_th_rio.png',file:'d/rose.mp3'},
     {t:'이런 엔딩',a:'아이유',th:'a/am_th_ending.png',file:''},
     {t:'인형의 꿈',a:'김필선',th:'a/am_th_doll.png',file:''},
     {t:'운이 좋았지',a:'권진아',th:'a/am_th_luck.png',file:''},
@@ -1490,7 +1609,7 @@ document.getElementById('stTop').addEventListener('click',()=>{
   requestAnimationFrame(step);
 });
 stSc.addEventListener('scroll',()=>{ if(!dm2Done && stSc.scrollTop>stSc.scrollHeight-stSc.clientHeight-40){ dm2Done=true; showDm2(); } });
-const igB2=document.createElement('div'); igB2.className='ig-banner b2'; igB2.innerHTML='<img src="a/ig_banner2.png" alt="">'; document.getElementById('phone').appendChild(igB2);
+const igB2=document.createElement('div'); igB2.className='ig-banner b2'; igB2.innerHTML='<img src="b/ig_banner2.png" alt="">'; document.getElementById('phone').appendChild(igB2);
 let dm2T=null;
 function showDm2(){ buzzDm();
   igB2.animate([{transform:'translateY(0) scale(.96)',opacity:0},{transform:'translateY(70px) scale(.98)',opacity:.85,offset:.35},{transform:'translateY(141px) scale(1.005)',opacity:1,offset:.75},{transform:'translateY(138px) scale(1)',opacity:1}],{duration:950,easing:'cubic-bezier(.22,.8,.3,1)',fill:'forwards'});
@@ -1555,7 +1674,7 @@ async function runDmScene(){
     const to=r.dataset.acc; if(to===acc){ closeSheet(); return; }
     closeSheet(); setTimeout(()=>{ sw.classList.add('on'); setTimeout(()=>{ acc=to; view(to==='shin'?'shin':'yux'); setTimeout(()=>sw.classList.remove('on'),80); },380); },220);
   }));
-  window.igResetViews=function(){ document.querySelectorAll('#insta .ig-room').forEach(r=>r.classList.remove('open')); acc='yux'; closeSheet(); view('yux'); };
+  window.igResetViews=function(){ document.getElementById('igPost').classList.remove('open'); window.igcClose&&igcClose(true); document.querySelectorAll('#insta .ig-room').forEach(r=>r.classList.remove('open')); acc='yux'; closeSheet(); view('yux'); };
 })();
 
 (function(){
@@ -1639,7 +1758,7 @@ async function runDmScene(){
 
 /* ===== 걸려오는 전화 (🍠🖤) : 거절만 누를 수 있음 → 홈으로 ===== */
 const callEl=document.createElement('div'); callEl.className='call-in';
-callEl.innerHTML='<img src="a/call_in.jpg" alt=""><img class="sb" src="b/sbar_white.png" alt=""><div class="decline"></div>';
+callEl.innerHTML='<img src="a/call_in.jpg" alt=""><img class="sb" src="d/sbar_white.png" alt=""><div class="decline"></div>';
 document.getElementById('phone').appendChild(callEl);
 let callVib=null, callFrom='';
 function showCall(from){ callFrom=from; callEl.classList.add('on');
@@ -1657,7 +1776,7 @@ callEl.querySelector('.decline').addEventListener('click',()=>{
 const cbEl=document.createElement('div'); cbEl.className='cb';
 cbEl.innerHTML='<img src="a/call_banner.png" alt=""><div class="bt no"></div><div class="bt ok"></div>';
 const ocEl=document.createElement('div'); ocEl.className='oncall';
-ocEl.innerHTML='<img class="sb" src="b/sbar_white.png" alt=""><div class="odot"></div><div class="st">연결 중...</div><img class="em" src="a/call_emoji.png" alt=""><img class="btns" src="a/call_btns.png" alt="">';
+ocEl.innerHTML='<img class="sb" src="d/sbar_white.png" alt=""><div class="odot"></div><div class="st">연결 중...</div><img class="em" src="a/call_emoji.png" alt=""><img class="btns" src="a/call_btns.png" alt="">';
 document.getElementById('phone').append(cbEl,ocEl);
 const voice=new Audio(); voice.preload='auto';
 (function(){ const u="a/call_voice.mp3"; if(!u.startsWith('data:')){ voice.src=u; return; } const [h,d]=u.split(','); const bin=atob(d), arr=new Uint8Array(bin.length); for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); voice.src=URL.createObjectURL(new Blob([arr],{type:'audio/mpeg'})); })();
@@ -1739,6 +1858,238 @@ function screenOff(){
 (function(){ const g=document.getElementById('gpScroll'), dn=document.getElementById('gpDown');
   g.addEventListener('scroll',()=>dn.classList.toggle('show', g.scrollHeight-g.clientHeight-g.scrollTop>60),{passive:true});
   dn.addEventListener('click',()=>g.scrollTo({top:g.scrollHeight,behavior:'smooth'}));
+})();
+
+/* ===== 인스타 게시물: 사진 옆으로 넘기기 (마지막 장에서 한 번 더 넘기면 X 링크로) ===== */
+(function(){
+  const post=document.getElementById('igPost'), ph=post.querySelector('.igp-ph'), tr=post.querySelector('.igp-track'), cnt=post.querySelector('.igp-cnt'), bot=post.querySelector('.igp-bot'), dotBox=post.querySelector('.igp-dots'), dots=[...dotBox.querySelectorAll('i')];
+  // 게시물 목록: photoH=사진 높이, imgs=사진, cnt=숫자 이미지(없으면 사진에 숫자가 들어있음), bots=아래쪽(장마다), link=마지막 다음 이동 링크
+  const POSTS=[
+    {photoH:499.33, imgs:["b/igp_1.jpg","b/igp_2.jpg","b/igp_3.jpg"], cnt:["b/igp_c1.png","b/igp_c2.png","b/igp_c3.png"], bots:["b/igp_bot.png"], dots:true, iconY:32.67, link:'https://x.com/wjdghksehgns/status/2103771638005411864'},
+    {photoH:468.67, imgs:["b/igq_1.jpg","b/igq_2.jpg","c/igq_3.jpg","c/igq_4.jpg"], bots:["c/igq_b1.png","c/igq_b2.png","c/igq_b3.png","c/igq_b4.png"], iconY:32, link:'https://x.com/wjdghksehgns/status/2103409232204963982'},
+    {photoH:281.33, imgs:["c/igr_1.jpg","c/igr_2.jpg","c/igr_3.jpg"], bots:["c/igr_b1.png","c/igr_b2.png","c/igr_b3.png"], iconY:31.67, link:'https://x.com/wjdghksehgns/status/2102692233355170096'},
+    {photoH:497, imgs:["c/igs_1.jpg","c/igs_2.jpg","c/igs_3.jpg","c/igs_4.jpg"], bots:["c/igs_b1.png","c/igs_b2.png","c/igs_b3.png","c/igs_b4.png"], iconY:31.67, link:'https://x.com/wjdghksehgns/status/2092907604909629617'},
+    {photoH:498.33, imgs:["c/igt_1.jpg","c/igt_2.jpg","c/igt_3.jpg"], bots:["c/igt_b1.png","c/igt_b2.png","c/igt_b3.png"], iconY:33.33, link:'https://x.com/wjdghksehgns/status/2090733212909940847'},
+    {photoH:468.67, imgs:["c/igu_1.jpg","c/igu_2.jpg","c/igu_3.jpg","c/igu_4.jpg"], bots:["c/igu_b1.png","c/igu_b2.png","c/igu_b3.png","c/igu_b4.png"], more:["c/igu_e1.png","c/igu_e2.png","c/igu_e3.png","c/igu_e4.png"], moreH:347.67, moreY:67, iconY:31.33, link:'https://x.com/wjdghksehgns/status/2076968813816697229'},
+    {photoH:498.33, imgs:["c/igv_1.jpg","c/igv_2.jpg","c/igv_3.jpg","c/igv_4.jpg"], bots:["c/igv_b1.png","c/igv_b2.png","c/igv_b3.png","c/igv_b4.png"], iconY:33, cmtX:90, link:'https://x.com/wjdghksehgns/status/2063916518623391775'},
+    {photoH:498.33, imgs:["c/igw_1.jpg","c/igw_2.jpg","c/igw_3.jpg","c/igw_4.jpg"], bots:["c/igw_b1.png","c/igw_b2.png","c/igw_b3.png","c/igw_b4.png"], iconY:32.67, link:'https://x.com/wjdghksehgns/status/2053774865291952192'},
+    {photoH:498.33, imgs:["c/igx_1.jpg","c/igx_2.jpg","c/igx_3.jpg"], bots:["c/igx_b1.png","c/igx_b2.png","c/igx_b3.png"], iconY:32.67, link:'https://x.com/wjdghksehgns/status/2047246641602945062'},
+    {photoH:500, imgs:["c/igy_1.jpg","c/igy_2.jpg","c/igy_3.jpg","c/igy_4.jpg","c/igy_5.jpg"], bots:["c/igy_b1.png","c/igy_b2.png","c/igy_b3.png","c/igy_b4.png","c/igy_b5.png"], iconY:31.33, link:null},
+    {photoH:469, imgs:["c/igz_1.jpg"], bots:["c/igz_b1.png"], iconY:13.33, prevY:88, link:'https://x.com/wjdghksehgns/status/2044349105850445948'},
+    {photoH:498.33, imgs:["a/igA_1.jpg","a/igA_2.jpg","a/igA_3.jpg"], bots:["a/igA_b1.png","a/igA_b2.png","a/igA_b3.png"], iconY:32.67, link:null},
+    {photoH:468.67, imgs:["a/igB_1.jpg","a/igB_2.jpg"], bots:["a/igB_b1.png","a/igB_b2.png"], iconY:31.33, link:'https://x.com/wjdghksehgns/status/2039242647249076484'},
+    {photoH:468.67, imgs:["a/igC_1.jpg","a/igC_2.jpg","a/igC_3.jpg","a/igC_4.jpg","a/igC_5.jpg"], bots:["a/igC_b1.png","a/igC_b2.png","a/igC_b3.png","a/igC_b4.png","a/igC_b5.png"], iconY:31.33, link:'https://x.com/wjdghksehgns/status/2036390497711956108'},
+    {photoH:500, imgs:["a/igD_1.jpg","a/igD_2.jpg","a/igD_3.jpg"], bots:["a/igD_b1.png","a/igD_b2.png","a/igD_b3.png"], iconY:31.33, link:'https://x.com/wjdghksehgns/status/2035311002229875053'},
+    {photoH:478, imgs:["a/igE_1.jpg","a/igE_2.jpg","a/igE_3.jpg","a/igE_4.jpg"], bots:["b/igE_b1.png","b/igE_b2.png","b/igE_b3.png","b/igE_b4.png"], iconY:31.33, link:'https://x.com/wjdghksehgns/status/2024836473389019625'},
+    {photoH:499.33, imgs:["b/igF_1.jpg","b/igF_2.jpg","b/igF_3.jpg","b/igF_4.jpg"], bots:["b/igF_b1.png","b/igF_b2.png","b/igF_b3.png","b/igF_b4.png"], iconY:31.33, link:null},
+    {photoH:468.33, imgs:["b/igG_1.jpg","b/igG_2.jpg","b/igG_3.jpg","b/igG_4.jpg"], bots:["b/igG_b1.png","b/igG_b2.png","b/igG_b3.png","b/igG_b4.png"], iconY:31.33, cmtX:90, link:'https://x.com/wjdghksehgns/status/2017236597788508561'},
+    {photoH:500, imgs:["b/igH_1.jpg","b/igH_2.jpg","b/igH_3.jpg","b/igH_4.jpg","b/igH_5.jpg"], bots:["b/igH_b1.png","b/igH_b2.png","b/igH_b3.png","b/igH_b4.png","b/igH_b5.png"], iconY:31.33, cmtX:90, link:'https://x.com/wjdghksehgns/status/2016150207545930224'},
+    {photoH:468.67, imgs:["b/igI_1.jpg","b/igI_2.jpg","b/igI_3.jpg","b/igI_4.jpg"], bots:["b/igI_b1.png","b/igI_b2.png","b/igI_b3.png","b/igI_b4.png"], iconY:31.33, cmtX:90, link:'https://x.com/wjdghksehgns/status/2002451859186032729'},
+    {photoH:500, imgs:["b/igJ_1.jpg","b/igJ_2.jpg","b/igJ_3.jpg","b/igJ_4.jpg"], bots:["b/igJ_b1.png","b/igJ_b2.png","b/igJ_b3.png","b/igJ_b4.png"], iconY:31.33, cmtX:90, link:'https://x.com/wjdghksehgns/status/2002602568162422991'}
+  ];
+  const sc=document.getElementById('igpSc'), sp=document.getElementById('igpSp'), more=document.getElementById('igpMore');
+  let exp=false;
+  function layout(){ const h=exp&&P.more?P.moreH:(812-158-P.photoH); bot.style.height=h+'px'; sp.style.height=Math.max(812,158+P.photoH+h)+'px'; }
+  more.addEventListener('click',()=>{ if(exp||!P.more) return; exp=true; layout(); setIdx(idx,false); more.style.display='none'; });
+  const W=375; let P=POSTS[0], N=3, idx=0, x0=null, y0=0, dx=0, mode=null, t0=0;
+  function setIdx(i,anim){ idx=i; tr.style.transition=anim?'transform .34s cubic-bezier(.25,.8,.25,1)':'none'; tr.style.transform='translate3d('+(-i*W)+'px,0,0)';
+    if(P.cnt) cnt.src=P.cnt[i]; bot.src=(exp&&P.more?P.more:P.bots)[Math.min(i,P.bots.length-1)]; dots.forEach((d,k)=>d.classList.toggle('on',k===i)); }
+  function load(k){ P=POSTS[k]; N=P.imgs.length;
+    tr.innerHTML=P.imgs.map(u=>'<img src="'+u+'" alt="">').join(''); tr.style.width=(N*W)+'px';
+    ph.style.height=P.photoH+'px'; bot.style.top=(158+P.photoH)+'px'; exp=false; layout(); sc.scrollTop=0;
+    more.style.cssText=P.more?'left:0;top:'+(158+P.photoH+P.moreY)+'px;width:375px;height:32px':'display:none';
+    [...(P.more||[])].forEach(u=>{ const im=new Image(); im.src=u; });
+    cnt.style.display=P.cnt?'':'none'; dotBox.style.display=P.dots?'':'none';
+    window.igcSetPost&&igcSetPost(k, 158+P.photoH, P.iconY, P.cmtX, P.prevY);
+    [...(P.cnt||[]),...P.bots].forEach(u=>{ const im=new Image(); im.src=u; });
+    setIdx(0,false); }
+  document.querySelectorAll('#insta [data-post]').forEach(h=>h.addEventListener('click',()=>{ load(+h.dataset.post); post.classList.add('open'); }));
+  document.getElementById('igPostBack').addEventListener('click',()=>{ post.classList.remove('open'); window.igcClose&&igcClose(true); });
+  ph.addEventListener('pointerdown',e=>{ const p=pt(e); x0=p.x; y0=p.y; dx=0; mode=null; t0=Date.now(); try{ ph.setPointerCapture(e.pointerId); }catch(_){} });
+  ph.addEventListener('pointermove',e=>{ if(x0===null) return; const p=pt(e), ddx=p.x-x0, ddy=p.y-y0;
+    if(!mode){ if(Math.abs(ddx)>8&&Math.abs(ddx)>Math.abs(ddy)) mode='h'; else if(Math.abs(ddy)>12) mode='v'; }
+    if(mode!=='h') return; dx=ddx; let off=dx; if(idx===0&&dx>0) off=dx*.35; if(idx===N-1&&dx<0) off=dx*.55;
+    tr.style.transition='none'; tr.style.transform='translate3d('+(-idx*W+off)+'px,0,0)'; });
+  const lk=document.getElementById('igLink');
+  function openLink(){ lk.dataset.url=P.link; lk.classList.add('on'); }
+  document.getElementById('igLinkNo').addEventListener('click',()=>lk.classList.remove('on'));
+  document.getElementById('igLinkOk').addEventListener('click',()=>{ const u=lk.dataset.url; lk.classList.remove('on'); let w=null; try{ w=window.open(u,'_blank'); }catch(_){} if(!w) location.href=u; });
+  function up(){ if(x0===null) return; x0=null; if(mode!=='h') return;
+    const v=Math.abs(dx)/Math.max(1,Date.now()-t0), go=Math.abs(dx)>60||(v>.4&&Math.abs(dx)>20);
+    if(go&&dx<0&&idx===N-1){ setIdx(idx,true); if(P.link) openLink(); return; }
+    if(go&&dx<0) setIdx(idx+1,true); else if(go&&dx>0&&idx>0) setIdx(idx-1,true); else setIdx(idx,true); }
+  ph.addEventListener('pointerup',up); ph.addEventListener('pointercancel',()=>{ x0=null; setIdx(idx,true); });
+  let sx=null,sy=0; post.addEventListener('pointerdown',e=>{ if(ph.contains(e.target)) return; const p=pt(e); if(p.x<24){sx=p.x;sy=p.y;} });
+  post.addEventListener('pointerup',e=>{ if(sx!==null){ const p=pt(e); if(p.x-sx>70&&Math.abs(p.y-sy)<60) post.classList.remove('open'); } sx=null; });
+})();
+
+/* ===== 인스타 댓글 (방문자 댓글 저장 · yuxhome 답글) ===== */
+(function(){
+  // ▼ Cloudflare 댓글 저장소 주소 (비어 있으면 이 폰에만 저장되는 임시 모드)
+  const IGC_API = 'https://yux-comments.pgd0115.workers.dev';
+  const AV_JADE="b/igc_av_jade.png", AV_SOWHEE="b/igc_av_sowhee.png", AV_DHUN="b/igc_av_dhun.png", AV_DEF="b/igc_av_def.png", AV_FLOAT="b/igc_av_float.png", HEART="b/igc_heart.png";
+  const PIDS=['p1','p2','p3','p4','p5','p6','p7','p8','p9','p10','p11','p12','p13','p14','p15','p16','p17','p18','p19','p20','p21'];
+  // 원래 있던 댓글 (고정)
+  const FIXED={ p3:[
+    {id:'f1', name:'float.hjh', av:AV_FLOAT, text:'같이 살면 안 올리고 걍 혼자 보면 좋을 텐데', replies:[
+      {name:'yuxhome', owner:true, text:'@float.hjh 지훈아 놀러 올래?'},
+      {name:'float.hjh', av:AV_FLOAT, text:'@yuxhome 에? 진심으로 하는 소리?;'},
+      {name:'yuxhome', owner:true, text:'@float.hjh 아니'},
+      {name:'float.hjh', av:AV_FLOAT, text:'@yuxhome 악!!!@!!!나도 싫다고 치고있었다고여아아아아아아앍악악악아아!!@!@!!!!!!!!!!!!'},
+      {name:'yuxhome', owner:true, text:'@float.hjh ㅋㅋ'} ]},
+    {id:'f2', name:'float.hjh', av:AV_FLOAT, text:'이 인간들 요즘 연락이 왜이렇게 안되나했더니', replies:[]} ],
+    p6:[
+    {id:'f3', name:'dhun.o.o', av:AV_DHUN, text:'내가 못 챙겨준 재작년 형 생일 갚을 때까지 형은 어디 못 가', replies:[]},
+    {id:'f4', name:'dhun.o.o', av:AV_DHUN, text:'속 얘기 잘 안 하는 형이 이러니까 좋네. 수정하기 없기', replies:[]} ],
+    p7:[
+    {id:'f5', name:'dhun.o.o', av:AV_DHUN, text:'누나들이 나 좋아하시는 거 같아 형', replies:[
+      {name:'yuxhome', owner:true, text:'응 도훈이 오늘 너무 잘했지 진짜'},
+      {name:'dhun.o.o', av:AV_DHUN, text:'이얏호~!'},
+      {name:'dhun.o.o', av:AV_DHUN, text:'그니까 이제 긴장 풀어ㅋㄱㅋㅌㄱ 그대로 가면 먹다 체하겠다'} ]} ],
+    p10:[
+    {id:'f7', name:'dhun.o.o', av:AV_DHUN, noRe:true, text:'나도형좋아크크', replies:[
+      {name:'yuxhome', owner:true, noRe:true, text:'@dhun.o.o 🫠'} ]} ],
+    p11:[
+    {id:'f8', name:'float.hjh', av:AV_FLOAT, noRe:true, text:'이럴 거면 그냥 이마에 붙이고 다니세예', replies:[]},
+    {id:'f9', name:'dhun.o.o', av:AV_DHUN, noRe:true, text:'아 잠만.. 나 이해했어..', replies:[]} ],
+    p13:[
+    {id:'f10', name:'dhun.o.o', av:AV_DHUN, noRe:true, text:'우리 형🤍 500일 축하해😘', replies:[]} ],
+    p16:[
+    {id:'f11', name:'dhun.o.o', av:AV_DHUN, noRe:true, text:'형 다시 반했네', replies:[]} ],
+    p20:[
+    {id:'f12', name:'_seafoamjj', av:AV_JADE, noRe:true, text:'니네 사귐?', replies:[]} ],
+    p21:[
+    {id:'f13', name:'_seafoamjj', av:AV_JADE, noRe:true, text:'둘만 갔어?', replies:[
+      {name:'yuxhome', owner:true, noRe:true, text:'@_seafoamjj 그러면?'} ]} ] };
+  const FIXED_N={p1:0,p2:0,p3:7,p4:0,p5:0,p6:2,p7:4,p8:0,p9:0,p10:2,p11:2,p12:0,p13:1,p14:0,p15:0,p16:1,p17:0,p18:0,p19:0,p20:1,p21:2};
+  const RESERVED=['yuxhome','_seafoamjj','shin.y','shiny','dhun.o.o','dhunoo','float.hjh','floathjh','lemonjimbim','hhaha.hl','신정환','김도훈','한지훈','정환','도훈','작성자','instagram','인스타그램'];
+  const $=id=>document.getElementById(id);
+  const root=$('igc'), sheet=$('igcSheet'), list=$('igcList'), inp=$('igcIn'), bar=$('igcBar'), rep=$('igcRep');
+  const cnum=$('igpCnum'), plane=$('igpPlane'), cbtn=$('igpCmtBtn'), cprev=$('igpCmtPrev');
+  const LS={ get(k){ try{ return localStorage.getItem(k); }catch(e){ return null; } }, set(k,v){ try{ localStorage.setItem(k,v); }catch(e){} } };
+  let nick=LS.get('yux_nick')||'', owner=LS.get('yux_owner')==='1';
+  let toks={}; try{ toks=JSON.parse(LS.get('yux_toks')||'{}'); }catch(e){}
+  let post='p1', all=[], loaded=0, replyTo=null, busy=false, pendingSend=false;
+  const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const fmt=t=>esc(t).replace(/^(@[^\s@]+)/,'<a>$1</a>');
+  function toast(m){ const t=$('igcToast'); t.textContent=m; t.classList.add('on'); clearTimeout(toast.t); toast.t=setTimeout(()=>t.classList.remove('on'),2200); }
+  const normN=s=>String(s||'').toLowerCase().replace(/[\s._\-·]/g,'');
+  function nickLocalErr(n){ n=String(n||'').trim(); if(!n) return '닉네임을 입력해 주세요.'; if([...n].length>20) return '닉네임이 너무 길어요.';
+    const k=normN(n); if(!IGC_API&&(RESERVED.some(r=>k===normN(r))||k.includes('yuxhome'))) return '사용할 수 없는 닉네임이에요.'; return null; }
+  // --- 서버 / 임시 저장
+  async function api(path,body){
+    if(!IGC_API) return localApi(path,body);
+    const r=await fetch(IGC_API.replace(/\/$/,'')+path, body?{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)}:{cache:'no-store'});
+    return r.json();
+  }
+  function localApi(path,body){
+    let db=[]; try{ db=JSON.parse(LS.get('yux_local_c')||'[]'); }catch(e){}
+    if(!body) return {comments:db};
+    if(path==='/nick'){ const e=nickLocalErr(body.nick); return e?{ok:false,error:e}:{ok:true,owner:false,name:body.nick}; }
+    if(path==='/c'){ if(body.parent!=null) return {ok:false,error:'답글은 작성자만 달 수 있어요.'}; const c={id:Date.now(),post:body.post,parent:null,name:body.nick,owner:false,text:body.text}; db.push(c); LS.set('yux_local_c',JSON.stringify(db)); return {ok:true,comment:c,tok:'local'}; }
+    if(path==='/del'){ db=db.filter(c=>String(c.id)!==String(body.id)); LS.set('yux_local_c',JSON.stringify(db)); return {ok:true}; }
+    return {ok:false,error:'권한이 없어요.'};
+  }
+  async function refresh(force){
+    if(!force&&Date.now()-loaded<15000) return;
+    try{ const d=await api('/c'); if(d&&d.comments){ all=d.comments; loaded=Date.now(); } }catch(e){}
+    updateCount(); if(root.classList.contains('open')) render();
+  }
+  const ofPost=p=>all.filter(c=>c.post===p);
+  function countFor(p){ return FIXED_N[p]+ofPost(p).length; }
+  // --- 게시물 아래 댓글 수 + 공유 아이콘 위치
+  let botTop=0;
+  let cx=81.67;
+  window.igcSetPost=function(k,top,iy,x,py){ post=PIDS[k]; botTop=top; iy=iy||32; cx=x||81.67; cnum.style.left=cx+'px';
+    cnum.style.top=(top+iy+2.83)+'px'; plane.style.top=(top+iy-2)+'px';
+    cbtn.style.cssText='left:'+(cx-36)+'px;top:'+(top+iy-8)+'px;width:36px;height:36px';
+    py=py||(post==='p3'?100:0); cprev.style.cssText=py?'left:0;top:'+(top+py)+'px;width:330px;height:'+(post==='p3'?50:22)+'px':'display:none';
+    updateCount(); refresh(); };
+  function updateCount(){ const n=countFor(post); cnum.textContent=n?String(n):''; cnum.style.display=n?'':'none';
+    plane.style.left=(n? (cx+cnum.getBoundingClientRect().width/(phoneScale())+12) : cx+9.66)+'px'; }
+  function phoneScale(){ const r=document.getElementById('phone').getBoundingClientRect(); return r.width/375||1; }
+  // --- 그리기
+  function row(c,isReply,fixed){
+    const av=c.av||AV_DEF, nm=esc(c.name)+(c.owner?'<span> · 작성자</span>':'');
+    const canReply=owner&&!isReply;
+    return '<div class="igc-c'+(isReply?' rp':'')+'" data-id="'+(c.id!=null?esc(c.id):'')+'" data-name="'+esc(c.name)+'"'+(fixed?' data-fixed="1"':'')+'><img class="av" src="'+av+'" alt=""><div class="n">'+nm+'</div><div class="t">'+fmt(c.text)+'</div>'+((c.noRe&&!canReply)?'':'<div class="r"'+(canReply?' data-reply="1"':'')+'>답글 달기</div>')+'<img class="h" src="'+HEART+'" alt=""></div>';
+  }
+  function render(keepScroll){
+    const st=list.scrollTop, open={}; list.querySelectorAll('.igc-replies.on').forEach(r=>open[r.dataset.for]=1);
+    const mine=ofPost(post), tops=(FIXED[post]||[]).map(f=>({...f,fixed:true})).concat(mine.filter(c=>c.parent==null));
+    let h='';
+    tops.forEach(c=>{
+      const reps=(c.replies||[]).map(r=>({...r,fixed:true})).concat(mine.filter(r=>String(r.parent)===String(c.id)));
+      h+=row(c,false,c.fixed);
+      if(reps.length){ const isOpen=open[c.id]||(!c.fixed&&!(c.id in open));
+        h+='<div class="igc-replies'+(isOpen?' on':'')+'" data-for="'+esc(c.id)+'">'+reps.map(r=>row(r,true,r.fixed)).join('')+'</div>';
+        h+='<div class="igc-more" data-for="'+esc(c.id)+'">'+(isOpen?'답글 숨기기':'답글 '+reps.length+'개 보기')+'</div>'; }
+    });
+    if(!tops.length) h='<div style="text-align:center;margin-top:90px"><div style="font-size:21px;font-weight:700;color:#0c0f13">아직 댓글이 없습니다</div><div style="font-size:14px;color:rgb(104,111,120);margin-top:8px">대화를 시작하세요.</div></div>';
+    list.innerHTML=h; if(keepScroll) list.scrollTop=st;
+  }
+  list.addEventListener('click',e=>{
+    const m=e.target.closest('.igc-more'); if(m){ const r=list.querySelector('.igc-replies[data-for="'+m.dataset.for+'"]'); const on=!r.classList.contains('on'); r.classList.toggle('on',on); m.textContent=on?'답글 숨기기':'답글 '+r.children.length+'개 보기'; return; }
+    const rr=e.target.closest('.r[data-reply]'); if(rr){ const c=rr.closest('.igc-c'); replyTo={id:c.dataset.id,name:c.dataset.name}; rep.querySelector('span').textContent=c.dataset.name+'님에게 답글 남기는 중'; rep.classList.add('on'); inp.value='@'+c.dataset.name+' '; bar.classList.add('typing'); inp.focus(); }
+  });
+  $('igcRepX').addEventListener('click',()=>{ replyTo=null; rep.classList.remove('on'); if(/^@\S+\s?$/.test(inp.value)) { inp.value=''; bar.classList.remove('typing'); } });
+  // 작성자: 댓글 꾹 누르면 삭제
+  let lp=null, lpEl=null;
+  list.addEventListener('pointerdown',e=>{ const c=e.target.closest('.igc-c'); if(!c||c.dataset.fixed||!(owner||toks[c.dataset.id])) return; lpEl=c; lp=setTimeout(()=>{ $('igcAct').classList.add('on'); },550); });
+  ['pointerup','pointercancel','pointermove'].forEach(ev=>list.addEventListener(ev,e=>{ if(ev==='pointermove'&&lp&&Math.abs(e.movementY)<2) return; clearTimeout(lp); lp=null; }));
+  $('igcActNo').addEventListener('click',()=>$('igcAct').classList.remove('on'));
+  $('igcDel').addEventListener('click',async()=>{ $('igcAct').classList.remove('on'); if(!lpEl) return; const id=lpEl.dataset.id;
+    try{ const r=await api('/del',{nick:owner?(LS.get('yux_key')||nick):nick,id,tok:toks[id]}); if(r.ok){ all=all.filter(c=>String(c.id)!==id&&String(c.parent)!==id); render(true); updateCount(); toast('삭제했어요'); } else toast(r.error||'삭제하지 못했어요'); }catch(e){ toast('잠시 후 다시 시도해 주세요.'); } });
+  // --- 열기 / 닫기
+  function open(){ root.classList.add('on'); render(); list.scrollTop=0; requestAnimationFrame(()=>requestAnimationFrame(()=>root.classList.add('open'))); refresh(); }
+  window.igcClose=function(now){ inp.blur(); replyTo=null; rep.classList.remove('on'); $('igcNick').classList.remove('on'); $('igcAct').classList.remove('on');
+    root.classList.remove('open'); sheet.style.transform=''; if(now){ root.classList.remove('on'); } else setTimeout(()=>{ if(!root.classList.contains('open')) root.classList.remove('on'); },380); };
+  cbtn.addEventListener('click',open); cprev.addEventListener('click',open);
+  $('igcDim').addEventListener('click',()=>igcClose());
+  (function(){ const g=$('igcGrab'); let y0=null,dy=0;
+    g.addEventListener('pointerdown',e=>{ y0=pt(e).y; dy=0; sheet.style.transition='none'; g.setPointerCapture(e.pointerId); });
+    g.addEventListener('pointermove',e=>{ if(y0===null) return; dy=Math.max(0,pt(e).y-y0); sheet.style.transform='translateY('+dy+'px)'; });
+    const up=()=>{ if(y0===null) return; y0=null; sheet.style.transition=''; if(dy>90) igcClose(); else sheet.style.transform=''; };
+    g.addEventListener('pointerup',up); g.addEventListener('pointercancel',up); })();
+  // --- 입력
+  inp.addEventListener('input',()=>bar.classList.toggle('typing',inp.value.trim().length>0));
+  inp.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.isComposing&&e.keyCode!==229){ e.preventDefault(); send(); } });
+  inp.addEventListener('pointerdown',e=>e.stopPropagation());
+  $('igcSend').addEventListener('pointerdown',e=>{ e.preventDefault(); send(); });
+  $('igcEmo').querySelectorAll('span').forEach(sp=>sp.addEventListener('pointerdown',e=>{ e.preventDefault(); inp.value+=sp.textContent; bar.classList.add('typing'); }));
+  $('igcMe').addEventListener('click',()=>askNick(false));
+  // --- 닉네임
+  const nm=$('igcNick'), nmIn=$('igcNickIn'), nmErr=$('igcNickErr');
+  function askNick(thenSend){ pendingSend=thenSend; nmIn.value=owner?'':nick; nmErr.textContent=''; nm.classList.add('on'); setTimeout(()=>nmIn.focus(),50); }
+  $('igcNickNo').addEventListener('click',()=>{ nm.classList.remove('on'); pendingSend=false; });
+  nmIn.addEventListener('keydown',e=>{ if(e.key==='Enter'&&!e.isComposing&&e.keyCode!==229){ e.preventDefault(); $('igcNickOk').click(); } });
+  nmIn.addEventListener('pointerdown',e=>e.stopPropagation());
+  $('igcNickOk').addEventListener('click',async()=>{ const v=nmIn.value.trim(); const le=nickLocalErr(v); if(le){ nmErr.textContent=le; return; }
+    try{ const r=await api('/nick',{nick:v}); if(!r.ok){ nmErr.textContent=r.error||'사용할 수 없는 닉네임이에요.'; return; }
+      owner=!!r.owner; nick=owner?'yuxhome':v; LS.set('yux_nick',nick); LS.set('yux_owner',owner?'1':'0'); if(owner) LS.set('yux_key',v);
+      nm.classList.remove('on'); render(true); if(owner) toast('작성자로 댓글을 달아요');
+      if(pendingSend){ pendingSend=false; send(); } else inp.focus();
+    }catch(e){ nmErr.textContent='잠시 후 다시 시도해 주세요.'; } });
+  // --- 보내기
+  async function send(){
+    const text=inp.value.trim(); if(!text||busy) return;
+    if(!nick){ askNick(true); return; }
+    busy=true;
+    try{ const body={post,nick:owner?(LS.get('yux_key')||nick):nick,text}; if(replyTo) body.parent=replyTo.id;
+      const r=await api('/c',body);
+      if(r.ok&&r.comment){ all.push(r.comment); if(r.tok){ toks[r.comment.id]=r.tok; LS.set('yux_toks',JSON.stringify(toks)); } inp.value=''; bar.classList.remove('typing'); const pid=replyTo&&replyTo.id; replyTo=null; rep.classList.remove('on');
+        render(true); if(pid){ const rr=list.querySelector('.igc-replies[data-for="'+pid+'"]'); if(rr&&!rr.classList.contains('on')){ rr.classList.add('on'); const m=list.querySelector('.igc-more[data-for="'+pid+'"]'); m&&(m.textContent='답글 숨기기'); } }
+        const el=list.querySelector('.igc-c[data-id="'+r.comment.id+'"]'); if(el){ el.classList.add('igc-new'); el.scrollIntoView({block:'nearest',behavior:'smooth'}); }
+        updateCount(); }
+      else toast(r.error||'댓글을 달지 못했어요');
+    }catch(e){ toast('잠시 후 다시 시도해 주세요.'); }
+    busy=false;
+  }
+  // --- 휴대폰 키보드가 올라오면 댓글 창도 같이 올리기
+  if(window.visualViewport){ const vv=window.visualViewport;
+    vv.addEventListener('resize',()=>{ if(!root.classList.contains('open')) return; const kb=Math.max(0,innerHeight-vv.height-vv.offsetTop), sc=phoneScale();
+      if(kb>80){ sheet.style.top='46.67px'; sheet.style.bottom=(kb/sc)+'px'; window.scrollTo(0,0); } else { sheet.style.top=''; sheet.style.bottom=''; } }); }
+  refresh(true);
 })();
 </script>
 </body>
